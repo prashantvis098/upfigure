@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Portfolio — Upfigure Creative Agency</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<link rel="stylesheet" href="css/style.css"/>
+<style>
+.portfolio-hero{min-height:50vh;display:flex;align-items:center;background:radial-gradient(ellipse at 40% 50%,rgba(139,0,255,0.08),transparent 60%);padding-top:120px}
+.filter-bar{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:48px 0 40px}
+.filter-btn{background:var(--glass-bg);border:1px solid var(--glass-border);color:var(--text-secondary);padding:8px 20px;border-radius:50px;cursor:pointer;font-size:0.85rem;font-weight:500;transition:var(--transition);font-family:var(--font-body)}
+.filter-btn:hover,.filter-btn.active{background:var(--accent-grad);color:#fff;border-color:transparent}
+.portfolio-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
+.portfolio-card{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:4/3;cursor:pointer;perspective:1000px}
+.card-inner{width:100%;height:100%;transition:transform 0.6s cubic-bezier(.4,2,.6,1);transform-style:preserve-3d;position:relative}
+.portfolio-card:hover .card-inner{transform:rotateY(180deg)}
+.card-front,.card-back{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:var(--radius)}
+.card-front{display:flex;flex-direction:column;align-items:flex-end;justify-content:flex-end;padding:20px}
+.card-back{background:rgba(10,10,20,0.97);border:1px solid var(--glass-border);transform:rotateY(180deg);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center}
+.card-category-tag{background:var(--accent-grad);color:#fff;padding:4px 12px;border-radius:50px;font-size:0.72rem;font-weight:600;letter-spacing:0.05em}
+.card-front-title{color:#fff;font-weight:700;font-size:1rem;margin-top:8px;text-shadow:0 2px 8px rgba(0,0,0,0.5)}
+.card-back h3{font-size:1.05rem;margin-bottom:10px}
+.card-back p{color:var(--text-secondary);font-size:0.83rem;line-height:1.6;margin-bottom:20px}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9999;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.3s}
+.lightbox.open{opacity:1;pointer-events:all}
+.lightbox-inner{max-width:700px;width:90%;background:var(--bg-secondary);border:1px solid var(--glass-border);border-radius:var(--radius);padding:40px;text-align:center;position:relative}
+.lightbox-close{position:absolute;top:16px;right:16px;background:none;border:none;color:var(--text-secondary);font-size:1.3rem;cursor:pointer}
+.lightbox-img{width:100%;border-radius:var(--radius-sm);margin-bottom:20px;aspect-ratio:16/9;object-fit:cover}
+</style>
+</head>
+<body>
+<div id="cursor"></div><div id="cursor-ring"></div>
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">Upfigure</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html" class="active">Portfolio</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-right"><button class="theme-toggle" id="theme-toggle">☀️</button><a href="contact.html" class="btn btn-primary">Get Quote</a></div>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html">Home</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-primary" style="margin-top:8px">Get Quote</a>
+</div>
+
+<section class="portfolio-hero">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-label">Our Work</span>
+      <h1 class="section-title" style="font-size:clamp(2.5rem,5vw,4rem)">Projects That <span class="gradient-text">Speak</span></h1>
+      <p class="section-sub" style="margin:0 auto">80+ projects delivered. Each one crafted with precision and passion.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="container">
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="design">Design</button>
+      <button class="filter-btn" data-filter="video">Video</button>
+      <button class="filter-btn" data-filter="web">Web</button>
+      <button class="filter-btn" data-filter="photography">Photography</button>
+      <button class="filter-btn" data-filter="app">App</button>
+      <button class="filter-btn" data-filter="marketing">Marketing</button>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-card reveal" data-category="web" onclick="openLightbox('E-Commerce Platform','web','A fully responsive e-commerce website with custom checkout, product filters, and payment integration. Achieved 40% increase in conversions.')">
+        <div class="card-inner">
+          <div class="card-front" style="background:linear-gradient(135deg,#0a0a2e,#00AAFF)"><span class="card-category-tag">Web</span><div class="card-front-title">E-Commerce Platform</div></div>
+          <div class="card-back"><h3>E-Commerce Platform</h3><p>Custom online store with smooth UX and payment gateway integration achieving 40% conversion boost.</p><a href="contact.html" class="btn btn-primary" style="font-size:0.8rem;padding:8px 18px">Start Similar Project</a></div>
+        </div>
+      </div>
+      <div class="portfolio-card reveal" data-category="design" onclick="openLightbox('Brand Identity Package','design','Complete brand identity for a tech startup including logo, color palette, typography system, and brand guidelines document.')">
+        <div class="card-inner">
+          <div class="card-front" style="background:linear-gradient(135deg,#1a0533,#8B00FF)"><span class="card-category-tag">Design</span><div class="card-front-title">Brand Identity Package</div></div>
+          <div class="card-back"><h3>Brand Identity Package</h3><p>Complete brand system — logo, colors, typography, and guidelines for a growing tech startup.</p><a href="contact.html" class="btn btn-primary" style="font-size:0.8rem;padding:8px 18px">Start Similar Project</a></div>
+        </div>
+      </div>
+      <div class="portfolio-card reveal" data-category="video" onclick="openLightbox('Product Launch Video','video','Cinematic product launch film with motion graphics, voiceover, and color grading. Reached 500K views organically.')">
+        <div class="card-inner">
+          <div class="card-front" style="background:linear-gradient(135deg,#1a0a00,#FF6B35)"><span class="card-category-tag">Video</span><div class="card-front-title">Product Launch Film</div></div>
+          <div class="card-back"><h3>Product Launch Film</h3><p>Cinematic launch video with motion graphics achieving 500K organic views on social media.</p><a href="contact.html" class="btn btn-primary" style="font-size:0.8rem;padding:8px 18px">Start Similar Project</a></div>
+        </div>
+      </div>
+      <div class="portfolio-card reveal" data-category="app" onclick="openLightbox('FinTech Mobile App','app','Complete UI/UX design for a fintech app — user research, wireframes, prototype, and developer-ready Figma files.')">
+        <div class="card-inner">
+          <div class="card-front" style="background:linear-gradient(135deg,#001a33,#00AAFF)"><span class="card-category-tag">App</span><div class="card-front-title">FinTech Mobile App</div></div>
+          <div class="card-back"><h3>FinTech Mobile App</h3><p>Full UI/UX design from research to developer-ready files for a personal finance management app.</p><a href="contact.html" class="btn btn-primary" style="font-size:0.8rem;padding:8px 18px">Start Similar Project</a></div>
+        </div>
+      </div>
+      <div class="portfolio-card reveal" data-category="photography" onclick="openLightbox('Restaurant Brand Shoot','photography','Complete product and ambiance photography for a premium restaurant chain across 3 locations in Delhi-NCR.')">
+        <div class="card-inner">
+          <div class="card-front" style="background:linear-gradient(135deg,#1a1000,#FFD200)"><span class="card-category-tag">Photography</span><div class="card-front-title">Restaurant Brand Shoot</div></div>
+          <div class="card-back"><h3>Restaurant Brand Shoot</h3><p>Premium food &amp; ambiance photography for a restaurant chain — 3 locations, 200+ final images.</p><a href="contact.html" class="btn btn-primary" style="font-size:0.8rem;padding:8px 18px">Start Similar Project</a></div>
+        </div>
+      </div>
+      <div class="portfolio-card reveal" data-category="marketing" onclick="openLightbox('Meta Ads Campaign','marketing','Performance marketing campaign that achieved 8x ROAS for a D2C brand with a ₹50,000 monthly budget.')">
+        <div class="card-inner">
+          <div class="card-front" style="background:linear-gradient(135deg,#001a10,#00FF88)"><span class="card-category-tag">Marketing</span><div class="card-front-title">8x ROAS Meta Campaign</div></div>
+          <div class="card-back"><h3>Meta Ads Campaign</h3><p>Performance campaign delivering 8x ROAS for a D2C brand — ₹50K budget, ₹4 Lakh+ revenue.</p><a href="contact.html" class="btn btn-primary" style="font-size:0.8rem;padding:8px 18px">Start Similar Project</a></div>
+        </div>
+      </div>
+      <div class="portfolio-card reveal" data-category="web" onclick="openLightbox('Real Estate Website','web','Premium real estate listing website with property search, filter, virtual tour integration, and CRM backend.')">
+        <div class="card-inner">
+          <div class="card-front" style="background:linear-gradient(135deg,#0a1a00,#7FFF00)"><span class="card-category-tag">Web</span><div class="card-front-title">Real Estate Portal</div></div>
+          <div class="card-back"><h3>Real Estate Portal</h3><p>Property listing platform with advanced filters, virtual tours, and lead management system.</p><a href="contact.html" class="btn btn-primary" style="font-size:0.8rem;padding:8px 18px">Start Similar Project</a></div>
+        </div>
+      </div>
+      <div class="portfolio-card reveal" data-category="design" onclick="openLightbox('Social Media Campaign','design','30-day Instagram content calendar with 60+ designed posts, reels templates, and story designs for a fashion brand.')">
+        <div class="card-inner">
+          <div class="card-front" style="background:linear-gradient(135deg,#1a0020,#FF1493)"><span class="card-category-tag">Design</span><div class="card-front-title">Social Media Campaign</div></div>
+          <div class="card-back"><h3>Social Media Campaign</h3><p>30-day Instagram campaign with 60+ custom posts growing followers from 5K to 25K.</p><a href="contact.html" class="btn btn-primary" style="font-size:0.8rem;padding:8px 18px">Start Similar Project</a></div>
+        </div>
+      </div>
+      <div class="portfolio-card reveal" data-category="video" onclick="openLightbox('Corporate Film','video','5-minute corporate brand film featuring CEO interview, team BTS, office tour, and product showcase with aerial shots.')">
+        <div class="card-inner">
+          <div class="card-front" style="background:linear-gradient(135deg,#000d1a,#4169E1)"><span class="card-category-tag">Video</span><div class="card-front-title">Corporate Brand Film</div></div>
+          <div class="card-back"><h3>Corporate Brand Film</h3><p>5-min brand documentary with aerial shots, interviews, and cinematic storytelling for a tech firm.</p><a href="contact.html" class="btn btn-primary" style="font-size:0.8rem;padding:8px 18px">Start Similar Project</a></div>
+        </div>
+      </div>
+      <div class="portfolio-card reveal" data-category="app" onclick="openLightbox('EdTech App','app','Complete mobile app for an EdTech startup — student dashboard, video player, quiz system, and progress tracking.')">
+        <div class="card-inner">
+          <div class="card-front" style="background:linear-gradient(135deg,#1a0a1a,#DA70D6)"><span class="card-category-tag">App</span><div class="card-front-title">EdTech Learning App</div></div>
+          <div class="card-back"><h3>EdTech Learning App</h3><p>Full-featured learning app with video courses, quizzes, progress tracking, and live sessions.</p><a href="contact.html" class="btn btn-primary" style="font-size:0.8rem;padding:8px 18px">Start Similar Project</a></div>
+        </div>
+      </div>
+      <div class="portfolio-card reveal" data-category="marketing" onclick="openLightbox('Google Ads Strategy','marketing','Google Search + Display campaign for a B2B SaaS company achieving 300% increase in qualified leads in 60 days.')">
+        <div class="card-inner">
+          <div class="card-front" style="background:linear-gradient(135deg,#1a0500,#FF4500)"><span class="card-category-tag">Marketing</span><div class="card-front-title">Google Ads 3x Leads</div></div>
+          <div class="card-back"><h3>Google Ads Campaign</h3><p>B2B Google Ads campaign — 300% increase in qualified leads in 60 days for a SaaS product.</p><a href="contact.html" class="btn btn-primary" style="font-size:0.8rem;padding:8px 18px">Start Similar Project</a></div>
+        </div>
+      </div>
+      <div class="portfolio-card reveal" data-category="photography" onclick="openLightbox('Fashion Product Shoot','photography','High-end fashion product shoot for an apparel D2C brand — 150+ catalogue images and 20 lifestyle shots.')">
+        <div class="card-inner">
+          <div class="card-front" style="background:linear-gradient(135deg,#0a001a,#9400D3)"><span class="card-category-tag">Photography</span><div class="card-front-title">Fashion Product Shoot</div></div>
+          <div class="card-back"><h3>Fashion Product Shoot</h3><p>High-end catalogue + lifestyle photography for a D2C apparel brand — 170 final images delivered.</p><a href="contact.html" class="btn btn-primary" style="font-size:0.8rem;padding:8px 18px">Start Similar Project</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cta">
+  <div class="container reveal">
+    <span class="section-label">Start Your Project</span>
+    <h2>Your Project Could Be <span class="gradient-text">Next</span></h2>
+    <p>Let's create something amazing for your brand.</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/918081871440" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+      <a href="contact.html" class="btn btn-primary">Get Free Consultation</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col"><a href="index.html" class="nav-logo" style="font-size:1.8rem;display:inline-block;margin-bottom:12px">Upfigure</a><p>Your Vision, Our Execution.</p><div class="social-links"><a href="#" class="social-link"><i class="fab fa-instagram"></i></a><a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a><a href="#" class="social-link"><i class="fab fa-youtube"></i></a></div></div>
+      <div class="footer-col"><h4>Quick Links</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Services</h4><ul class="footer-links"><li><a href="services.html">Graphics Design</a></li><li><a href="services.html">Video Editing</a></li><li><a href="services.html">Web Development</a></li><li><a href="services.html">App Development</a></li><li><a href="services.html">Performance Marketing</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul class="footer-contact"><li><i class="fab fa-whatsapp"></i><a href="https://wa.me/918081871440" style="color:inherit;text-decoration:none">+91 8081871440</a></li><li><i class="fas fa-envelope"></i>hello.prashantseo@gmail.com</li><li><i class="fas fa-map-marker-alt"></i>Gurugram, Haryana</li></ul></div>
+    </div>
+  </div>
+  <div class="footer-bottom"><div class="container">© 2024 Upfigure. All Rights Reserved. | Made with ❤️ in Gurugram</div></div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="document.getElementById('lightbox').classList.remove('open')"><i class="fas fa-times"></i></button>
+    <div id="lightbox-img" style="width:100%;aspect-ratio:16/9;border-radius:12px;margin-bottom:20px"></div>
+    <h2 id="lightbox-title" style="margin-bottom:12px"></h2>
+    <p id="lightbox-desc" style="color:var(--text-secondary);font-size:0.9rem;line-height:1.7;margin-bottom:24px"></p>
+    <a href="contact.html" class="btn btn-primary">Start Similar Project →</a>
+  </div>
+</div>
+
+<a href="https://wa.me/918081871440" target="_blank" class="float-whatsapp"><i class="fab fa-whatsapp"></i></a>
+<button class="float-back-top" id="back-top"><i class="fas fa-chevron-up"></i></button>
+<button class="float-chatbot-btn" id="chatbot-btn">🤖<div class="chat-badge" id="chat-badge">1</div></button>
+<div id="chatbot-panel">
+  <div class="chat-header"><div class="chat-avatar">🤖</div><div class="chat-header-info"><div class="chat-header-name">Upfigure AI</div><div class="chat-header-status"><div class="chat-online-dot"></div> Online</div></div><button class="chat-close" id="chat-close"><i class="fas fa-times"></i></button></div>
+  <div class="chat-messages" id="chat-messages"></div>
+  <div class="chat-input-area"><input type="text" class="chat-input" id="chat-input" placeholder="Ask me anything..."/><button class="chat-send" id="chat-send"><i class="fas fa-paper-plane"></i></button></div>
+</div>
+<script src="js/main.js"></script>
+<script>
+const gradients=['linear-gradient(135deg,#0a0a2e,#00AAFF)','linear-gradient(135deg,#1a0533,#8B00FF)','linear-gradient(135deg,#1a0a00,#FF6B35)'];
+function openLightbox(title,cat,desc){
+  document.getElementById('lightbox-title').textContent=title;
+  document.getElementById('lightbox-desc').textContent=desc;
+  document.getElementById('lightbox-img').style.background=gradients[Math.floor(Math.random()*gradients.length)];
+  document.getElementById('lightbox').classList.add('open');
+}
+function closeLightbox(e){if(e.target.id==='lightbox')document.getElementById('lightbox').classList.remove('open');}
+</script>
+</body>
+</html>

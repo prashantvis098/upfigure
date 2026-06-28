@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Services — Upfigure Creative Agency</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<link rel="stylesheet" href="css/style.css"/>
+<style>
+.services-page-hero{min-height:50vh;display:flex;align-items:center;background:radial-gradient(ellipse at 60% 40%,rgba(0,170,255,0.08),transparent 60%);padding-top:120px}
+.service-detail-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:var(--radius);padding:36px 32px;transition:var(--transition);transform-style:preserve-3d}
+.service-detail-card:hover{border-color:rgba(0,170,255,0.25);box-shadow:0 16px 48px rgba(0,170,255,0.1);transform:translateY(-6px)}
+.service-features{list-style:none;margin:16px 0 24px;display:flex;flex-direction:column;gap:8px}
+.service-features li{display:flex;align-items:center;gap:8px;font-size:0.85rem;color:var(--text-secondary)}
+.service-features li::before{content:'✓';color:var(--accent-blue);font-weight:700;min-width:14px}
+.faq-item{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:var(--radius-sm);margin-bottom:12px;overflow:hidden}
+.faq-q{padding:18px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:0.95rem;transition:var(--transition)}
+.faq-q:hover{color:var(--accent-blue)}
+.faq-q i{transition:transform 0.3s}
+.faq-item.open .faq-q i{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.4s ease;color:var(--text-secondary);font-size:0.88rem;line-height:1.7}
+.faq-item.open .faq-a{max-height:200px}
+.faq-a-inner{padding:0 24px 20px}
+</style>
+</head>
+<body>
+<div id="cursor"></div><div id="cursor-ring"></div>
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">Upfigure</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-toggle" id="theme-toggle">☀️</button>
+      <a href="contact.html" class="btn btn-primary">Get Quote</a>
+    </div>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html">Home</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-primary" style="margin-top:8px">Get Quote</a>
+</div>
+
+<section class="services-page-hero">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-label">What We Offer</span>
+      <h1 class="section-title" style="font-size:clamp(2.5rem,5vw,4rem)">Our <span class="gradient-text">Services</span></h1>
+      <p class="section-sub" style="margin:0 auto">Everything your brand needs, under one roof. 12 services, one agency, infinite possibilities.</p>
+    </div>
+  </div>
+</section>
+
+<section id="services-detail" style="background:var(--bg-secondary)">
+  <div class="container">
+    <div class="services-grid">
+      <div class="service-detail-card reveal">
+        <div class="service-icon"><i class="fas fa-palette"></i></div>
+        <h3>Graphics Design</h3>
+        <p>Build a brand identity that stands out with premium visual design across all touchpoints.</p>
+        <ul class="service-features">
+          <li>Logo design &amp; brand guidelines</li><li>Social media creatives</li>
+          <li>Marketing collaterals &amp; print</li><li>Packaging design</li><li>Pitch deck design</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary" style="font-size:0.85rem;padding:10px 20px">Get Quote</a>
+      </div>
+      <div class="service-detail-card reveal">
+        <div class="service-icon"><i class="fas fa-film"></i></div>
+        <h3>Video Editing</h3>
+        <p>Transform raw footage into cinematic stories that captivate and convert your audience.</p>
+        <ul class="service-features">
+          <li>Reels &amp; short-form videos</li><li>Brand films &amp; ads</li>
+          <li>Motion graphics &amp; animations</li><li>Color grading</li><li>Subtitles &amp; captions</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary" style="font-size:0.85rem;padding:10px 20px">Get Quote</a>
+      </div>
+      <div class="service-detail-card reveal">
+        <div class="service-icon"><i class="fas fa-video"></i></div>
+        <h3>Cinematography</h3>
+        <p>Professional shoots with cinematic quality equipment and expert direction.</p>
+        <ul class="service-features">
+          <li>Corporate film production</li><li>Product videography</li>
+          <li>Event coverage</li><li>Drone footage</li><li>Interview &amp; testimonials</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary" style="font-size:0.85rem;padding:10px 20px">Get Quote</a>
+      </div>
+      <div class="service-detail-card reveal">
+        <div class="service-icon"><i class="fas fa-camera"></i></div>
+        <h3>Photography</h3>
+        <p>Stunning visuals that elevate your brand across digital and print channels.</p>
+        <ul class="service-features">
+          <li>Product photography</li><li>Corporate &amp; headshots</li>
+          <li>Lifestyle shoots</li><li>Food photography</li><li>E-commerce photography</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary" style="font-size:0.85rem;padding:10px 20px">Get Quote</a>
+      </div>
+      <div class="service-detail-card reveal">
+        <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+        <h3>Website Design</h3>
+        <p>Beautiful, conversion-focused websites that make visitors take action.</p>
+        <ul class="service-features">
+          <li>UI/UX design &amp; prototyping</li><li>Responsive across all devices</li>
+          <li>CMS integration</li><li>Performance optimized</li><li>SEO-ready structure</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary" style="font-size:0.85rem;padding:10px 20px">Get Quote</a>
+      </div>
+      <div class="service-detail-card reveal">
+        <div class="service-icon"><i class="fas fa-code"></i></div>
+        <h3>Web Development</h3>
+        <p>Scalable, robust web solutions built for speed, security, and growth.</p>
+        <ul class="service-features">
+          <li>Custom web applications</li><li>E-commerce platforms</li>
+          <li>API integrations</li><li>CMS (WordPress, custom)</li><li>Performance &amp; security</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary" style="font-size:0.85rem;padding:10px 20px">Get Quote</a>
+      </div>
+      <div class="service-detail-card reveal">
+        <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+        <h3>App Design</h3>
+        <p>Intuitive, beautiful mobile app interfaces that users love to use.</p>
+        <ul class="service-features">
+          <li>UX research &amp; wireframing</li><li>High-fidelity UI mockups</li>
+          <li>Prototyping &amp; user testing</li><li>Design system creation</li><li>Handoff to developers</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary" style="font-size:0.85rem;padding:10px 20px">Get Quote</a>
+      </div>
+      <div class="service-detail-card reveal">
+        <div class="service-icon"><i class="fab fa-apple"></i></div>
+        <h3>iOS &amp; Android Dev</h3>
+        <p>Native &amp; cross-platform mobile apps that deliver exceptional performance.</p>
+        <ul class="service-features">
+          <li>React Native / Flutter</li><li>Native iOS (Swift)</li>
+          <li>Native Android (Kotlin)</li><li>App Store submission</li><li>Ongoing maintenance</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary" style="font-size:0.85rem;padding:10px 20px">Get Quote</a>
+      </div>
+      <div class="service-detail-card reveal">
+        <div class="service-icon"><i class="fas fa-rocket"></i></div>
+        <h3>Landing Pages</h3>
+        <p>High-converting landing pages designed to maximize leads and sales.</p>
+        <ul class="service-features">
+          <li>Conversion-focused design</li><li>A/B testing ready</li>
+          <li>Lead capture forms</li><li>Fast loading speed</li><li>Analytics integration</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary" style="font-size:0.85rem;padding:10px 20px">Get Quote</a>
+      </div>
+      <div class="service-detail-card reveal">
+        <div class="service-icon"><i class="fas fa-hashtag"></i></div>
+        <h3>Social Media</h3>
+        <p>Content strategy &amp; community building that grows your brand organically.</p>
+        <ul class="service-features">
+          <li>Content calendar &amp; strategy</li><li>Creative post design</li>
+          <li>Reel scripts &amp; production</li><li>Community management</li><li>Analytics reporting</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary" style="font-size:0.85rem;padding:10px 20px">Get Quote</a>
+      </div>
+      <div class="service-detail-card reveal">
+        <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>Performance Marketing</h3>
+        <p>ROI-driven paid ad campaigns that generate real business results.</p>
+        <ul class="service-features">
+          <li>Meta Ads (Facebook/Instagram)</li><li>Google Ads &amp; PPC</li>
+          <li>Campaign strategy &amp; creatives</li><li>Retargeting campaigns</li><li>Weekly performance reports</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary" style="font-size:0.85rem;padding:10px 20px">Get Quote</a>
+      </div>
+      <div class="service-detail-card reveal">
+        <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
+        <h3>Social Media Mgmt</h3>
+        <p>Full social media handling so you can focus on running your business.</p>
+        <ul class="service-features">
+          <li>Profile optimization</li><li>Daily content posting</li>
+          <li>Comment &amp; DM management</li><li>Growth strategies</li><li>Monthly analytics report</li>
+        </ul>
+        <a href="contact.html" class="btn btn-primary" style="font-size:0.85rem;padding:10px 20px">Get Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container" style="max-width:760px">
+    <div class="text-center reveal">
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title">Common <span class="gradient-text">Questions</span></h2>
+    </div>
+    <div style="margin-top:48px">
+      <div class="faq-item reveal">
+        <div class="faq-q">How do I get started? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-a"><div class="faq-a-inner">Simply WhatsApp us at +91 8081871440 or fill the contact form. We'll schedule a free discovery call to understand your requirements and share a detailed proposal within 24 hours.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">What are your payment terms? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-a"><div class="faq-a-inner">We typically work on a 50% advance + 50% on delivery model. For larger projects, we offer milestone-based payments. All pricing is transparent with no hidden costs.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">Do you work with clients outside Gurugram? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-a"><div class="faq-a-inner">Absolutely! We work with clients across India and internationally. Everything is handled remotely via WhatsApp, Zoom, and email. Distance is never a barrier.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">How many revisions are included? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-a"><div class="faq-a-inner">All our packages include a minimum of 2-3 revision rounds. We work until you're completely satisfied with the output. Additional revisions beyond scope are charged nominally.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">Can you handle multiple services simultaneously? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes! That's our specialty. Our in-house team of specialists can handle design, video, web, and marketing simultaneously, ensuring brand consistency across all channels.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cta">
+  <div class="container reveal">
+    <span class="section-label">Let's Work Together</span>
+    <h2>Ready to Get <span class="gradient-text">Started?</span></h2>
+    <p>Pick a service and let's build something amazing together.</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/918081871440" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+      <a href="contact.html" class="btn btn-primary">Get Free Consultation</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="index.html" class="nav-logo" style="font-size:1.8rem;display:inline-block;margin-bottom:12px">Upfigure</a>
+        <p>Your Vision, Our Execution. Full-service creative agency in Gurugram.</p>
+        <div class="social-links"><a href="#" class="social-link"><i class="fab fa-instagram"></i></a><a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a><a href="#" class="social-link"><i class="fab fa-youtube"></i></a></div>
+      </div>
+      <div class="footer-col"><h4>Quick Links</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Services</h4><ul class="footer-links"><li><a href="services.html">Graphics Design</a></li><li><a href="services.html">Video Editing</a></li><li><a href="services.html">Web Development</a></li><li><a href="services.html">App Development</a></li><li><a href="services.html">Performance Marketing</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul class="footer-contact"><li><i class="fab fa-whatsapp"></i><a href="https://wa.me/918081871440" style="color:inherit;text-decoration:none">+91 8081871440</a></li><li><i class="fas fa-envelope"></i>hello.prashantseo@gmail.com</li><li><i class="fas fa-map-marker-alt"></i>Gurugram, Haryana</li><li><i class="fas fa-clock"></i>Mon–Sat: 10AM–7PM</li></ul></div>
+    </div>
+  </div>
+  <div class="footer-bottom"><div class="container">© 2024 Upfigure. All Rights Reserved. | Made with ❤️ in Gurugram</div></div>
+</footer>
+
+<a href="https://wa.me/918081871440" target="_blank" class="float-whatsapp"><i class="fab fa-whatsapp"></i></a>
+<button class="float-back-top" id="back-top"><i class="fas fa-chevron-up"></i></button>
+<button class="float-chatbot-btn" id="chatbot-btn">🤖<div class="chat-badge" id="chat-badge">1</div></button>
+<div id="chatbot-panel">
+  <div class="chat-header"><div class="chat-avatar">🤖</div><div class="chat-header-info"><div class="chat-header-name">Upfigure AI</div><div class="chat-header-status"><div class="chat-online-dot"></div> Online</div></div><button class="chat-close" id="chat-close"><i class="fas fa-times"></i></button></div>
+  <div class="chat-messages" id="chat-messages"></div>
+  <div class="chat-input-area"><input type="text" class="chat-input" id="chat-input" placeholder="Ask me anything..."/><button class="chat-send" id="chat-send"><i class="fas fa-paper-plane"></i></button></div>
+</div>
+<script src="js/main.js"></script>
+<script>
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const item=q.parentElement;
+    document.querySelectorAll('.faq-item').forEach(i=>{if(i!==item)i.classList.remove('open')});
+    item.classList.toggle('open');
+  });
+});
+</script>
+</body>
+</html>

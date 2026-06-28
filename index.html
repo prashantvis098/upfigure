@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Upfigure — Full-Service Creative Agency | Gurugram</title>
+<meta name="description" content="Upfigure is a full-service creative agency in Gurugram offering design, video, web, app, and performance marketing services."/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<link rel="stylesheet" href="css/style.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">Upfigure</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="theme-toggle" id="theme-toggle" title="Toggle theme">☀️</button>
+      <a href="contact.html" class="btn btn-primary">Get Quote</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn btn-primary" style="margin-top:8px">Get Quote</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div id="threejs-canvas" aria-hidden="true">
+    <div class="holo-orb-fallback">
+      <span class="orb-ring orb-ring-1"></span>
+      <span class="orb-ring orb-ring-2"></span>
+      <span class="orb-ring orb-ring-3"></span>
+      <span class="orb-core"></span>
+      <span class="orb-dot orb-dot-1"></span>
+      <span class="orb-dot orb-dot-2"></span>
+      <span class="orb-dot orb-dot-3"></span>
+      <span class="orb-dot orb-dot-4"></span>
+    </div>
+    <div class="orbital-label"><i class="fas fa-pen-nib"></i> Design Systems</div>
+    <div class="orbital-label"><i class="fas fa-code"></i> Web Builds</div>
+    <div class="orbital-label"><i class="fas fa-bullseye"></i> Growth Ads</div>
+    <div class="orbital-label"><i class="fas fa-video"></i> Video Studio</div>
+  </div>
+
+  <!-- Floating 3D shapes -->
+  <div class="shape-3d shape-cube" style="top:20%;left:5%;animation-delay:0s"></div>
+  <div class="shape-3d shape-ring" style="top:60%;left:8%;animation-delay:1s"></div>
+  <div class="shape-3d shape-dot" style="top:30%;left:45%;animation-delay:2s"></div>
+  <div class="shape-3d shape-cube" style="top:70%;left:40%;animation-delay:0.5s;width:40px;height:40px"></div>
+
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span>🏆 Top Agency in India</span>
+        &nbsp;· 4.9 ⭐ Rating
+      </div>
+      <h1 class="hero-title">
+        <span class="word">We</span>
+        <span class="word">Build</span>
+        <span class="word gradient-text">Brands</span>
+        <span class="word">That</span>
+        <span class="word" style="color:var(--accent-blue)">Stand</span>
+        <span class="word">Out</span>
+      </h1>
+      <p class="hero-sub">Full-Service Creative Agency — Design, Video, Web &amp; Marketing</p>
+      <div class="hero-typing-line">
+        <span class="hero-typing-label">Experts in</span>
+        <span class="typed-text"></span><span class="typed-cursor"></span>
+      </div>
+      <div class="hero-btns">
+        <a href="portfolio.html" class="btn btn-primary"><i class="fas fa-play"></i> See Our Work</a>
+        <a href="contact.html" class="btn btn-outline">Get Free Consultation →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div id="trust-bar">
+  <div class="container trust-inner">
+    <div class="trust-item"><i class="fas fa-star"></i> 4.9 Google Rating</div>
+    <div class="trust-item"><i class="fas fa-check-circle"></i> 80+ Projects Completed</div>
+    <div class="trust-item"><i class="fas fa-trophy"></i> Gurugram's Top Agency</div>
+    <div class="trust-item"><i class="fas fa-rocket"></i> 3 Days Delivery</div>
+    <div class="trust-item"><i class="fas fa-users"></i> 30+ Happy Clients</div>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div id="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item">Graphics Design</span>
+    <span class="ticker-item">Video Editing</span>
+    <span class="ticker-item">Cinematography</span>
+    <span class="ticker-item">Photography</span>
+    <span class="ticker-item">Web Development</span>
+    <span class="ticker-item">App Development</span>
+    <span class="ticker-item">Social Media</span>
+    <span class="ticker-item">Performance Marketing</span>
+    <span class="ticker-item">App Design</span>
+    <span class="ticker-item">iOS &amp; Android</span>
+    <span class="ticker-item">Landing Pages</span>
+    <span class="ticker-item">Social Media Management</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-label">What We Do</span>
+      <h2 class="section-title">12 Services. <span class="gradient-text">One Agency.</span></h2>
+      <p class="section-sub">Infinite possibilities for your brand growth</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal"><div class="service-icon"><i class="fas fa-palette"></i></div><h3>Graphics Design</h3><p>Logos, branding, creatives that speak to your audience and stand out in the market.</p></div>
+      <div class="service-card reveal"><div class="service-icon"><i class="fas fa-film"></i></div><h3>Video Editing</h3><p>Cinematic edits that captivate your audience and tell your brand story powerfully.</p></div>
+      <div class="service-card reveal"><div class="service-icon"><i class="fas fa-video"></i></div><h3>Cinematography</h3><p>Professional shoots that tell your story — corporate, product, event coverage.</p></div>
+      <div class="service-card reveal"><div class="service-icon"><i class="fas fa-camera"></i></div><h3>Photography</h3><p>Product, corporate &amp; lifestyle photography that elevates your brand perception.</p></div>
+      <div class="service-card reveal"><div class="service-icon"><i class="fas fa-laptop-code"></i></div><h3>Website Design</h3><p>Beautiful, conversion-focused websites that turn visitors into customers.</p></div>
+      <div class="service-card reveal"><div class="service-icon"><i class="fas fa-code"></i></div><h3>Web Development</h3><p>Fast, scalable &amp; robust web solutions built for performance and growth.</p></div>
+      <div class="service-card reveal"><div class="service-icon"><i class="fas fa-mobile-alt"></i></div><h3>App Design</h3><p>Intuitive UI/UX for mobile apps that users love and keep coming back to.</p></div>
+      <div class="service-card reveal"><div class="service-icon"><i class="fab fa-apple"></i></div><h3>iOS &amp; Android Dev</h3><p>Native &amp; cross-platform mobile apps that deliver exceptional user experience.</p></div>
+      <div class="service-card reveal"><div class="service-icon"><i class="fas fa-rocket"></i></div><h3>Landing Pages</h3><p>High-converting landing pages designed to maximize leads and sales.</p></div>
+      <div class="service-card reveal"><div class="service-icon"><i class="fas fa-hashtag"></i></div><h3>Social Media</h3><p>Content strategy &amp; community building that grows your brand organically.</p></div>
+      <div class="service-card reveal"><div class="service-icon"><i class="fas fa-chart-line"></i></div><h3>Performance Marketing</h3><p>ROI-driven paid ad campaigns on Google, Meta &amp; more platforms.</p></div>
+      <div class="service-card reveal"><div class="service-icon"><i class="fas fa-bullhorn"></i></div><h3>Social Media Mgmt</h3><p>Full social media handling — content, posting, engagement &amp; growth.</p></div>
+    </div>
+    <div class="text-center" style="margin-top:48px">
+      <a href="services.html" class="btn btn-outline">Explore All Services →</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section id="why-us" style="background:var(--bg-primary)">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-label">Why Us</span>
+      <h2 class="section-title">Why Brands Choose <span class="gradient-text">Upfigure</span></h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal"><div class="why-icon"><i class="fas fa-users-cog"></i></div><h3>In-House Team</h3><p>No outsourcing, ever. Full control over quality and delivery timelines.</p></div>
+      <div class="why-card reveal"><div class="why-icon"><i class="fas fa-layer-group"></i></div><h3>All Under One Roof</h3><p>Design, video, web, app, marketing — one agency for everything you need.</p></div>
+      <div class="why-card reveal"><div class="why-icon"><i class="fas fa-bolt"></i></div><h3>Fast Delivery</h3><p>Dedicated team with quick turnaround. Logos in 2 days, websites in 14.</p></div>
+      <div class="why-card reveal"><div class="why-icon"><i class="fas fa-shield-alt"></i></div><h3>Transparent Pricing</h3><p>No hidden costs, no surprises. Clear packages and honest communication.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-label">Numbers</span>
+      <h2 class="section-title">Results That <span class="gradient-text">Speak</span></h2>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card reveal">
+        <div class="stat-number-wrap"><span class="stat-number" data-target="80" data-suffix="+">0+</span></div>
+        <span class="stat-label">Projects Completed</span>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-number-wrap"><span class="stat-number" data-target="30" data-suffix="+">0+</span></div>
+        <span class="stat-label">Happy Clients</span>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-number-wrap"><span class="stat-number" data-target="12" data-suffix="">0</span></div>
+        <span class="stat-label">Services Offered</span>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-number-wrap"><span class="stat-number" data-target="100" data-suffix="%">0%</span></div>
+        <span class="stat-label">Client Satisfaction</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section id="clients" style="background:var(--bg-primary)">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-label">Clients</span>
+      <h2 class="section-title">Brands That <span class="gradient-text">Trust Us</span></h2>
+      <p class="section-sub">We've worked with businesses across industries</p>
+    </div>
+    <div class="clients-marquee">
+      <div class="clients-row clients-row-1">
+        <div class="client-logo">TechStartup Co.</div>
+        <div class="client-logo">FashionBrand</div>
+        <div class="client-logo">RealEstate Pro</div>
+        <div class="client-logo">D2C Ventures</div>
+        <div class="client-logo">Restaurant Hub</div>
+        <div class="client-logo">EdTech India</div>
+        <div class="client-logo">HealthPlus</div>
+        <div class="client-logo">AutoDeals</div>
+        <div class="client-logo">RetailMart</div>
+        <div class="client-logo">FinanceGrow</div>
+        <div class="client-logo">TravelExplore</div>
+        <div class="client-logo">BeautyBrand</div>
+      </div>
+      <div class="clients-row clients-row-2">
+        <div class="client-logo">BeautyBrand</div>
+        <div class="client-logo">TravelExplore</div>
+        <div class="client-logo">FinanceGrow</div>
+        <div class="client-logo">RetailMart</div>
+        <div class="client-logo">AutoDeals</div>
+        <div class="client-logo">HealthPlus</div>
+        <div class="client-logo">EdTech India</div>
+        <div class="client-logo">Restaurant Hub</div>
+        <div class="client-logo">D2C Ventures</div>
+        <div class="client-logo">RealEstate Pro</div>
+        <div class="client-logo">FashionBrand</div>
+        <div class="client-logo">TechStartup Co.</div>
+      </div>
+    </div>
+    <p class="text-center" style="color:var(--text-muted);margin-top:24px;font-size:0.85rem">Trusted by 20+ brands across India</p>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-label">Testimonials</span>
+      <h2 class="section-title">What Our Clients <span class="gradient-text">Say</span></h2>
+      <p class="section-sub">Real results, real feedback</p>
+    </div>
+    <div class="text-center" style="margin:32px 0">
+      <div class="reviews-top-badge">
+        <span class="stars-gold">⭐⭐⭐⭐⭐</span>
+        <span>4.9 | Based on 50+ Reviews | Google Verified</span>
+      </div>
+    </div>
+    <div class="reviews-carousel">
+      <div class="reviews-track">
+        <div class="review-card">
+          <div class="review-card-top">
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">R</div>
+              <div><div class="reviewer-name">Rajesh Sharma</div><div class="reviewer-company">TechStartup Delhi</div></div>
+            </div>
+            <div class="google-g">G</div>
+          </div>
+          <div class="review-stars">⭐⭐⭐⭐⭐</div>
+          <p class="review-text">"Upfigure completely transformed our brand identity. Website, social media, everything was top class. Best agency decision we made!"</p>
+          <div class="review-date">November 2024</div>
+        </div>
+        <div class="review-card">
+          <div class="review-card-top">
+            <div class="reviewer-info">
+              <div class="reviewer-avatar" style="background:linear-gradient(135deg,#FF6B6B,#FF8E53)">P</div>
+              <div><div class="reviewer-name">Priya Mehta</div><div class="reviewer-company">FashionBrand Mumbai</div></div>
+            </div>
+            <div class="google-g">G</div>
+          </div>
+          <div class="review-stars">⭐⭐⭐⭐⭐</div>
+          <p class="review-text">"Best agency in Gurugram hands down! Their video quality and graphics have increased our sales by 3x. Highly recommended!"</p>
+          <div class="review-date">October 2024</div>
+        </div>
+        <div class="review-card">
+          <div class="review-card-top">
+            <div class="reviewer-info">
+              <div class="reviewer-avatar" style="background:linear-gradient(135deg,#4ECDC4,#44A8B3)">A</div>
+              <div><div class="reviewer-name">Amit Kumar</div><div class="reviewer-company">RealEstate Gurugram</div></div>
+            </div>
+            <div class="google-g">G</div>
+          </div>
+          <div class="review-stars">⭐⭐⭐⭐⭐</div>
+          <p class="review-text">"The photography and cinematography work is absolutely outstanding. Our property listings look premium now. Great team!"</p>
+          <div class="review-date">October 2024</div>
+        </div>
+        <div class="review-card">
+          <div class="review-card-top">
+            <div class="reviewer-info">
+              <div class="reviewer-avatar" style="background:linear-gradient(135deg,#A8EDEA,#FED6E3)">N</div>
+              <div><div class="reviewer-name">Neha Singh</div><div class="reviewer-company">D2C Brand Noida</div></div>
+            </div>
+            <div class="google-g">G</div>
+          </div>
+          <div class="review-stars">⭐⭐⭐⭐⭐</div>
+          <p class="review-text">"Performance marketing ROI was 5x what we expected. The team is super professional and always delivers on time!"</p>
+          <div class="review-date">September 2024</div>
+        </div>
+        <div class="review-card">
+          <div class="review-card-top">
+            <div class="reviewer-info">
+              <div class="reviewer-avatar" style="background:linear-gradient(135deg,#667EEA,#764BA2)">R</div>
+              <div><div class="reviewer-name">Rohit Verma</div><div class="reviewer-company">Restaurant Owner Gurugram</div></div>
+            </div>
+            <div class="google-g">G</div>
+          </div>
+          <div class="review-stars">⭐⭐⭐⭐⭐</div>
+          <p class="review-text">"Social media management has been brilliant. Our followers went from 10k to 50k in just 3 months. Amazing work!"</p>
+          <div class="review-date">September 2024</div>
+        </div>
+        <div class="review-card">
+          <div class="review-card-top">
+            <div class="reviewer-info">
+              <div class="reviewer-avatar" style="background:linear-gradient(135deg,#F7971E,#FFD200)">S</div>
+              <div><div class="reviewer-name">Sakshi Gupta</div><div class="reviewer-company">EdTech Company Delhi</div></div>
+            </div>
+            <div class="google-g">G</div>
+          </div>
+          <div class="review-stars">⭐⭐⭐⭐⭐</div>
+          <p class="review-text">"Both app design and website came out perfect. The team understood our vision and executed it flawlessly. 10/10!"</p>
+          <div class="review-date">August 2024</div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-controls">
+      <button class="carousel-btn" id="prev-review"><i class="fas fa-chevron-left"></i></button>
+      <div class="carousel-dots">
+        <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+      </div>
+      <button class="carousel-btn" id="next-review"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process" style="background:var(--bg-secondary)">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-label">Process</span>
+      <h2 class="section-title">How We <span class="gradient-text">Work</span></h2>
+    </div>
+    <div class="process-timeline">
+      <div class="process-step reveal">
+        <div class="process-num"><i class="fas fa-phone"></i></div>
+        <div><h4>Discovery Call</h4><p>We understand your goals, vision, and requirements.</p></div>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-num"><i class="fas fa-map"></i></div>
+        <div><h4>Strategy &amp; Planning</h4><p>We create the roadmap and project blueprint.</p></div>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-num"><i class="fas fa-pencil-ruler"></i></div>
+        <div><h4>Design &amp; Build</h4><p>We bring your vision to life with precision.</p></div>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-num"><i class="fas fa-comments"></i></div>
+        <div><h4>Review &amp; Feedback</h4><p>We refine together until it's perfect.</p></div>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-num"><i class="fas fa-rocket"></i></div>
+        <div><h4>Launch &amp; Support</h4><p>We launch and provide ongoing support.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="container reveal">
+    <span class="section-label">Let's Work Together</span>
+    <h2>Ready to Grow <span class="gradient-text">Your Brand?</span></h2>
+    <p>Let's build something amazing together. Free consultation, no commitment.</p>
+    <div class="cta-btns">
+      <a href="https://wa.me/918081871440" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Us Now</a>
+      <a href="contact.html" class="btn btn-primary">Get Free Consultation</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="index.html" class="nav-logo" style="font-size:1.8rem;display:inline-block;margin-bottom:12px">Upfigure</a>
+        <p>Your Vision, Our Execution. Full-service creative agency in Gurugram helping brands grow through design, technology &amp; marketing.</p>
+        <div class="social-links" style="margin-top:20px">
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Our Services</h4>
+        <ul class="footer-links">
+          <li><a href="services.html">Graphics Design</a></li>
+          <li><a href="services.html">Video Editing</a></li>
+          <li><a href="services.html">Web Development</a></li>
+          <li><a href="services.html">App Development</a></li>
+          <li><a href="services.html">Social Media</a></li>
+          <li><a href="services.html">Performance Marketing</a></li>
+          <li><a href="services.html">Photography</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <ul class="footer-contact">
+          <li><i class="fab fa-whatsapp"></i><a href="https://wa.me/918081871440" style="color:inherit;text-decoration:none">+91 8081871440</a></li>
+          <li><i class="fas fa-envelope"></i><a href="mailto:hello.prashantseo@gmail.com" style="color:inherit;text-decoration:none">hello.prashantseo@gmail.com</a></li>
+          <li><i class="fas fa-map-marker-alt"></i>Gurugram, Haryana, India</li>
+          <li><i class="fas fa-clock"></i>Mon–Sat: 10AM – 7PM</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">© 2024 Upfigure. All Rights Reserved. | Made with ❤️ in India</div>
+  </div>
+</footer>
+
+<!-- FLOATING ELEMENTS -->
+<a href="https://wa.me/918081871440" target="_blank" class="float-whatsapp" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<button class="float-back-top" id="back-top" title="Back to top"><i class="fas fa-chevron-up"></i></button>
+<button class="float-chatbot-btn" id="chatbot-btn" title="AI Assistant">
+  🤖
+  <div class="chat-badge" id="chat-badge">1</div>
+</button>
+<a href="#reviews" class="float-review-badge"><span class="stars-gold">⭐</span> 4.9 | 50+ Happy Clients</a>
+
+<!-- CHATBOT PANEL -->
+<div id="chatbot-panel">
+  <div class="chat-header">
+    <div class="chat-avatar">🤖</div>
+    <div class="chat-header-info">
+      <div class="chat-header-name">Upfigure AI Assistant</div>
+      <div class="chat-header-status"><div class="chat-online-dot"></div> Online — replies instantly</div>
+    </div>
+    <button class="chat-close" id="chat-close"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="chat-messages" id="chat-messages"></div>
+  <div class="chat-input-area">
+    <input type="text" class="chat-input" id="chat-input" placeholder="Ask me anything..."/>
+    <button class="chat-send" id="chat-send"><i class="fas fa-paper-plane"></i></button>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
