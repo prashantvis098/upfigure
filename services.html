@@ -3,23 +3,35 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Services — Upfigure Creative Agency</title>
+<title>Services — Upfigure | Technology, Design, Marketing, Growth &amp; AI</title>
+<meta name="description" content="Explore 50+ services across Development, Design, Marketing, Growth and AI. Upfigure builds the right solution for your business — not a generic package."/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 <link rel="stylesheet" href="css/style.css"/>
+<link rel="stylesheet" href="css/chatbot-human.css"/>
 <style>
 .services-page-hero{min-height:50vh;display:flex;align-items:center;background:radial-gradient(ellipse at 60% 40%,rgba(0,170,255,0.08),transparent 60%);padding-top:120px}
-.service-detail-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:var(--radius);padding:36px 32px;transition:var(--transition);transform-style:preserve-3d}
-.service-detail-card:hover{border-color:rgba(0,170,255,0.25);box-shadow:0 16px 48px rgba(0,170,255,0.1);transform:translateY(-6px)}
-.service-features{list-style:none;margin:16px 0 24px;display:flex;flex-direction:column;gap:8px}
-.service-features li{display:flex;align-items:center;gap:8px;font-size:0.85rem;color:var(--text-secondary)}
-.service-features li::before{content:'✓';color:var(--accent-blue);font-weight:700;min-width:14px}
+.category-nav{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:48px 0 8px}
+.category-pill{background:var(--glass-bg);border:1px solid var(--glass-border);color:var(--text-secondary);padding:9px 20px;border-radius:50px;cursor:pointer;font-size:0.85rem;font-weight:600;transition:var(--transition);font-family:var(--font-head);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.category-pill:hover,.category-pill.active{background:var(--accent-grad);color:#fff;border-color:transparent}
+.cat-block{padding:64px 0;border-top:1px solid var(--glass-border)}
+.cat-block:first-of-type{border-top:none}
+.cat-header{display:flex;align-items:center;gap:16px;margin-bottom:40px}
+.cat-icon-big{width:54px;height:54px;border-radius:14px;background:var(--accent-grad);display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:#fff;flex-shrink:0}
+.cat-header h2{font-size:1.7rem;margin-bottom:4px}
+.cat-header p{color:var(--text-secondary);font-size:0.9rem}
+.mini-services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.mini-service-card{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:20px 22px;transition:var(--transition)}
+.mini-service-card:hover{border-color:rgba(0,170,255,0.25);transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,170,255,0.08)}
+.mini-service-card h4{font-size:0.92rem;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.mini-service-card h4 i{color:var(--accent-blue);font-size:0.85rem;width:18px}
+.mini-service-card p{color:var(--text-secondary);font-size:0.8rem;line-height:1.55}
 .faq-item{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:var(--radius-sm);margin-bottom:12px;overflow:hidden}
 .faq-q{padding:18px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:0.95rem;transition:var(--transition)}
 .faq-q:hover{color:var(--accent-blue)}
 .faq-q i{transition:transform 0.3s}
 .faq-item.open .faq-q i{transform:rotate(180deg)}
 .faq-a{max-height:0;overflow:hidden;transition:max-height 0.4s ease;color:var(--text-secondary);font-size:0.88rem;line-height:1.7}
-.faq-item.open .faq-a{max-height:200px}
+.faq-item.open .faq-a{max-height:220px}
 .faq-a-inner{padding:0 24px 20px}
 </style>
 </head>
@@ -37,149 +49,142 @@
     </ul>
     <div class="nav-right">
       <button class="theme-toggle" id="theme-toggle">☀️</button>
-      <a href="contact.html" class="btn btn-primary">Get Quote</a>
+      <a href="contact.html" class="btn btn-primary">Book a Call</a>
     </div>
     <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <div class="mobile-menu" id="mobile-menu">
   <a href="index.html">Home</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="about.html">About</a><a href="contact.html">Contact</a>
-  <a href="contact.html" class="btn btn-primary" style="margin-top:8px">Get Quote</a>
+  <a href="contact.html" class="btn btn-primary" style="margin-top:8px">Book a Call</a>
 </div>
 
 <section class="services-page-hero">
   <div class="container">
     <div class="text-center reveal">
       <span class="section-label">What We Offer</span>
-      <h1 class="section-title" style="font-size:clamp(2.5rem,5vw,4rem)">Our <span class="gradient-text">Services</span></h1>
-      <p class="section-sub" style="margin:0 auto">Everything your brand needs, under one roof. 12 services, one agency, infinite possibilities.</p>
+      <h1 class="section-title" style="font-size:clamp(2.5rem,5vw,4rem)">Every Tool Your Business <span class="gradient-text">Needs to Grow</span></h1>
+      <p class="section-sub" style="margin:0 auto">We don't sell packages. We diagnose your challenge, then pull from the right combination of these capabilities to solve it.</p>
+    </div>
+    <div class="category-nav">
+      <a href="#dev" class="category-pill"><i class="fas fa-code"></i> Development</a>
+      <a href="#design" class="category-pill"><i class="fas fa-palette"></i> Design</a>
+      <a href="#marketing" class="category-pill"><i class="fas fa-chart-line"></i> Marketing</a>
+      <a href="#growth" class="category-pill"><i class="fas fa-seedling"></i> Growth</a>
+      <a href="#ai" class="category-pill"><i class="fas fa-robot"></i> AI &amp; Automation</a>
     </div>
   </div>
 </section>
 
-<section id="services-detail" style="background:var(--bg-secondary)">
+<!-- DEVELOPMENT -->
+<section class="cat-block" id="dev" style="background:var(--bg-secondary)">
   <div class="container">
-    <div class="services-grid">
-      <div class="service-detail-card reveal">
-        <div class="service-icon"><i class="fas fa-palette"></i></div>
-        <h3>Graphics Design</h3>
-        <p>Build a brand identity that stands out with premium visual design across all touchpoints.</p>
-        <ul class="service-features">
-          <li>Logo design &amp; brand guidelines</li><li>Social media creatives</li>
-          <li>Marketing collaterals &amp; print</li><li>Packaging design</li><li>Pitch deck design</li>
-        </ul>
-        <a href="contact.html" class="btn btn-primary" style="font-size:0.85rem;padding:10px 20px">Get Quote</a>
-      </div>
-      <div class="service-detail-card reveal">
-        <div class="service-icon"><i class="fas fa-film"></i></div>
-        <h3>Video Editing</h3>
-        <p>Transform raw footage into cinematic stories that captivate and convert your audience.</p>
-        <ul class="service-features">
-          <li>Reels &amp; short-form videos</li><li>Brand films &amp; ads</li>
-          <li>Motion graphics &amp; animations</li><li>Color grading</li><li>Subtitles &amp; captions</li>
-        </ul>
-        <a href="contact.html" class="btn btn-primary" style="font-size:0.85rem;padding:10px 20px">Get Quote</a>
-      </div>
-      <div class="service-detail-card reveal">
-        <div class="service-icon"><i class="fas fa-video"></i></div>
-        <h3>Cinematography</h3>
-        <p>Professional shoots with cinematic quality equipment and expert direction.</p>
-        <ul class="service-features">
-          <li>Corporate film production</li><li>Product videography</li>
-          <li>Event coverage</li><li>Drone footage</li><li>Interview &amp; testimonials</li>
-        </ul>
-        <a href="contact.html" class="btn btn-primary" style="font-size:0.85rem;padding:10px 20px">Get Quote</a>
-      </div>
-      <div class="service-detail-card reveal">
-        <div class="service-icon"><i class="fas fa-camera"></i></div>
-        <h3>Photography</h3>
-        <p>Stunning visuals that elevate your brand across digital and print channels.</p>
-        <ul class="service-features">
-          <li>Product photography</li><li>Corporate &amp; headshots</li>
-          <li>Lifestyle shoots</li><li>Food photography</li><li>E-commerce photography</li>
-        </ul>
-        <a href="contact.html" class="btn btn-primary" style="font-size:0.85rem;padding:10px 20px">Get Quote</a>
-      </div>
-      <div class="service-detail-card reveal">
-        <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
-        <h3>Website Design</h3>
-        <p>Beautiful, conversion-focused websites that make visitors take action.</p>
-        <ul class="service-features">
-          <li>UI/UX design &amp; prototyping</li><li>Responsive across all devices</li>
-          <li>CMS integration</li><li>Performance optimized</li><li>SEO-ready structure</li>
-        </ul>
-        <a href="contact.html" class="btn btn-primary" style="font-size:0.85rem;padding:10px 20px">Get Quote</a>
-      </div>
-      <div class="service-detail-card reveal">
-        <div class="service-icon"><i class="fas fa-code"></i></div>
-        <h3>Web Development</h3>
-        <p>Scalable, robust web solutions built for speed, security, and growth.</p>
-        <ul class="service-features">
-          <li>Custom web applications</li><li>E-commerce platforms</li>
-          <li>API integrations</li><li>CMS (WordPress, custom)</li><li>Performance &amp; security</li>
-        </ul>
-        <a href="contact.html" class="btn btn-primary" style="font-size:0.85rem;padding:10px 20px">Get Quote</a>
-      </div>
-      <div class="service-detail-card reveal">
-        <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
-        <h3>App Design</h3>
-        <p>Intuitive, beautiful mobile app interfaces that users love to use.</p>
-        <ul class="service-features">
-          <li>UX research &amp; wireframing</li><li>High-fidelity UI mockups</li>
-          <li>Prototyping &amp; user testing</li><li>Design system creation</li><li>Handoff to developers</li>
-        </ul>
-        <a href="contact.html" class="btn btn-primary" style="font-size:0.85rem;padding:10px 20px">Get Quote</a>
-      </div>
-      <div class="service-detail-card reveal">
-        <div class="service-icon"><i class="fab fa-apple"></i></div>
-        <h3>iOS &amp; Android Dev</h3>
-        <p>Native &amp; cross-platform mobile apps that deliver exceptional performance.</p>
-        <ul class="service-features">
-          <li>React Native / Flutter</li><li>Native iOS (Swift)</li>
-          <li>Native Android (Kotlin)</li><li>App Store submission</li><li>Ongoing maintenance</li>
-        </ul>
-        <a href="contact.html" class="btn btn-primary" style="font-size:0.85rem;padding:10px 20px">Get Quote</a>
-      </div>
-      <div class="service-detail-card reveal">
-        <div class="service-icon"><i class="fas fa-rocket"></i></div>
-        <h3>Landing Pages</h3>
-        <p>High-converting landing pages designed to maximize leads and sales.</p>
-        <ul class="service-features">
-          <li>Conversion-focused design</li><li>A/B testing ready</li>
-          <li>Lead capture forms</li><li>Fast loading speed</li><li>Analytics integration</li>
-        </ul>
-        <a href="contact.html" class="btn btn-primary" style="font-size:0.85rem;padding:10px 20px">Get Quote</a>
-      </div>
-      <div class="service-detail-card reveal">
-        <div class="service-icon"><i class="fas fa-hashtag"></i></div>
-        <h3>Social Media</h3>
-        <p>Content strategy &amp; community building that grows your brand organically.</p>
-        <ul class="service-features">
-          <li>Content calendar &amp; strategy</li><li>Creative post design</li>
-          <li>Reel scripts &amp; production</li><li>Community management</li><li>Analytics reporting</li>
-        </ul>
-        <a href="contact.html" class="btn btn-primary" style="font-size:0.85rem;padding:10px 20px">Get Quote</a>
-      </div>
-      <div class="service-detail-card reveal">
-        <div class="service-icon"><i class="fas fa-chart-line"></i></div>
-        <h3>Performance Marketing</h3>
-        <p>ROI-driven paid ad campaigns that generate real business results.</p>
-        <ul class="service-features">
-          <li>Meta Ads (Facebook/Instagram)</li><li>Google Ads &amp; PPC</li>
-          <li>Campaign strategy &amp; creatives</li><li>Retargeting campaigns</li><li>Weekly performance reports</li>
-        </ul>
-        <a href="contact.html" class="btn btn-primary" style="font-size:0.85rem;padding:10px 20px">Get Quote</a>
-      </div>
-      <div class="service-detail-card reveal">
-        <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
-        <h3>Social Media Mgmt</h3>
-        <p>Full social media handling so you can focus on running your business.</p>
-        <ul class="service-features">
-          <li>Profile optimization</li><li>Daily content posting</li>
-          <li>Comment &amp; DM management</li><li>Growth strategies</li><li>Monthly analytics report</li>
-        </ul>
-        <a href="contact.html" class="btn btn-primary" style="font-size:0.85rem;padding:10px 20px">Get Quote</a>
-      </div>
+    <div class="cat-header reveal">
+      <div class="cat-icon-big"><i class="fas fa-code"></i></div>
+      <div><h2>Development</h2><p>Websites, applications and platforms built for performance, security and growth.</p></div>
+    </div>
+    <div class="mini-services-grid">
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>Premium Website Development</h4><p>Custom-built websites designed for conversion, speed and a premium brand experience.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>Business Websites</h4><p>Professional websites that establish credibility and communicate your value clearly.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>Corporate Websites</h4><p>Polished, enterprise-grade web presence for established businesses and institutions.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>Landing Pages</h4><p>Focused, high-converting pages built around a single goal — capturing leads or driving sales.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>Web Applications</h4><p>Custom web apps built to handle complex business logic and scale with your operations.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>SaaS Development</h4><p>End-to-end SaaS product development — from MVP to scalable, multi-tenant platforms.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>Mobile Apps</h4><p>Native and cross-platform iOS/Android apps built for performance and great UX.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>E-commerce Development</h4><p>Custom online stores with seamless checkout, inventory and payment integrations.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>Shopify Development</h4><p>Custom Shopify stores and theme development optimized for conversion and speed.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>WooCommerce Development</h4><p>WordPress-based e-commerce builds tailored to your catalog and business model.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>Website Redesign</h4><p>Modernize an outdated site without losing your SEO equity or existing traffic.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>Website Maintenance</h4><p>Ongoing updates, security patches, backups and performance monitoring.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DESIGN -->
+<section class="cat-block" id="design">
+  <div class="container">
+    <div class="cat-header reveal">
+      <div class="cat-icon-big"><i class="fas fa-palette"></i></div>
+      <div><h2>Design</h2><p>Visual identity and creative systems that make your brand instantly recognizable.</p></div>
+    </div>
+    <div class="mini-services-grid">
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>UI/UX Design</h4><p>User-centered interface design backed by research, wireframing and usability testing.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>Graphic Design</h4><p>Visual assets across every touchpoint — print, digital, packaging and presentations.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>Brand Identity</h4><p>Complete brand systems — colors, typography, voice and visual guidelines.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>Logo Design</h4><p>Distinctive logos that capture your brand essence and work across every medium.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>Presentation Design</h4><p>Investor decks, sales pitches and corporate presentations designed to persuade.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>Motion Graphics</h4><p>Animated visuals that bring your brand and product story to life.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>Video Editing</h4><p>Cinematic edits, color grading and post-production for every video format.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>Social Media Creatives</h4><p>On-brand visual content designed specifically for each social platform's format.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKETING -->
+<section class="cat-block" id="marketing" style="background:var(--bg-secondary)">
+  <div class="container">
+    <div class="cat-header reveal">
+      <div class="cat-icon-big"><i class="fas fa-chart-line"></i></div>
+      <div><h2>Marketing</h2><p>Data-driven campaigns that put your brand in front of the right audience.</p></div>
+    </div>
+    <div class="mini-services-grid">
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>Digital Marketing</h4><p>Integrated marketing strategy across every digital channel your customers use.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>SEO</h4><p>Organic search strategy that builds long-term, sustainable visibility and traffic.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>Local SEO</h4><p>Dominate local search results and Google Maps for location-based businesses.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>Technical SEO</h4><p>Site architecture, speed and crawlability fixes that unlock organic growth.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>Google Ads</h4><p>Search, display and shopping campaigns optimized for cost-efficient conversions.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>Meta Ads</h4><p>Facebook and Instagram campaigns targeting the right audience at the right moment.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>LinkedIn Marketing</h4><p>B2B-focused campaigns and content strategy to reach decision-makers directly.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>Performance Marketing</h4><p>ROI-first paid media strategy across every platform, optimized continuously.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>Social Media Marketing</h4><p>Strategic content and community growth that builds genuine brand affinity.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>Social Media Management</h4><p>Full handling of your social presence — content, posting, engagement and reporting.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>Content Marketing</h4><p>Strategic content that builds authority and nurtures prospects toward conversion.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>Email Marketing</h4><p>Automated and campaign-based email flows that drive retention and repeat sales.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>Google Business Profile</h4><p>Optimization that improves local visibility, reviews and map pack rankings.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>CRO</h4><p>Conversion rate optimization through testing, analytics and UX refinement.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- GROWTH -->
+<section class="cat-block" id="growth">
+  <div class="container">
+    <div class="cat-header reveal">
+      <div class="cat-icon-big"><i class="fas fa-seedling"></i></div>
+      <div><h2>Growth</h2><p>Systems and pipelines that turn interest into qualified, ready-to-buy leads.</p></div>
+    </div>
+    <div class="mini-services-grid">
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>Lead Generation</h4><p>Multi-channel lead generation systems that fill your pipeline consistently.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>B2B Lead Generation</h4><p>Targeted outreach and campaigns built specifically for B2B sales cycles.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>Appointment Setting</h4><p>Qualified meetings booked directly into your sales team's calendar.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>CRM Setup</h4><p>Custom CRM implementation tailored to your sales process and team structure.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>CRM Automation</h4><p>Automated workflows inside your CRM that eliminate manual follow-up tasks.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>Marketing Automation</h4><p>Automated nurture sequences that move leads through your funnel on autopilot.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>Email Automation</h4><p>Triggered email flows for onboarding, abandoned carts and re-engagement.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>WhatsApp Automation</h4><p>Automated WhatsApp flows for lead capture, support and order updates.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>Sales Funnels</h4><p>Complete funnel architecture — from first touch to closed deal.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- AI -->
+<section class="cat-block" id="ai" style="background:var(--bg-secondary)">
+  <div class="container">
+    <div class="cat-header reveal">
+      <div class="cat-icon-big"><i class="fas fa-robot"></i></div>
+      <div><h2>AI &amp; Automation</h2><p>Modern AI systems that save time, reduce costs and scale your operations.</p></div>
+    </div>
+    <div class="mini-services-grid">
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>AI Automation</h4><p>Custom automation systems that eliminate repetitive manual business tasks.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>AI Agent Development</h4><p>Purpose-built AI agents that handle specific business functions autonomously.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>AI Chatbots</h4><p>Conversational AI that qualifies leads and answers customer questions 24/7.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>AI Voice Agents</h4><p>Voice-based AI for inbound and outbound call handling at scale.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>AI Sales Agents</h4><p>AI-driven sales assistants that engage, qualify and nurture prospects.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>AI Customer Support Agents</h4><p>Always-on AI support that resolves common issues instantly, escalates the rest.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>AI Integration</h4><p>Embedding AI capabilities directly into your existing tools and workflows.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>Workflow Automation</h4><p>End-to-end automation connecting your tools, teams and data sources.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>Business Process Automation</h4><p>Systematic automation of recurring operational processes across departments.</p></div>
+      <div class="mini-service-card reveal"><h4><i class="fas fa-check"></i>AI Consulting</h4><p>Strategic guidance on where and how AI can realistically move your business forward.</p></div>
     </div>
   </div>
 </section>
@@ -193,24 +198,24 @@
     </div>
     <div style="margin-top:48px">
       <div class="faq-item reveal">
-        <div class="faq-q">How do I get started? <i class="fas fa-chevron-down"></i></div>
-        <div class="faq-a"><div class="faq-a-inner">Simply WhatsApp us at +91 8081871440 or fill the contact form. We'll schedule a free discovery call to understand your requirements and share a detailed proposal within 24 hours.</div></div>
+        <div class="faq-q">I don't know which service I need — what now? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-a"><div class="faq-a-inner">That's completely normal, and exactly why we start with a discovery call instead of a sales pitch. Tell us your business challenge — we'll identify the right combination of services to solve it, even if that's just one thing.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">Can you handle multiple services at once? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes — that's our core strength. Our in-house teams across development, design, marketing, growth and AI work together, ensuring consistency across every channel instead of fragmented execution.</div></div>
       </div>
       <div class="faq-item reveal">
         <div class="faq-q">What are your payment terms? <i class="fas fa-chevron-down"></i></div>
-        <div class="faq-a"><div class="faq-a-inner">We typically work on a 50% advance + 50% on delivery model. For larger projects, we offer milestone-based payments. All pricing is transparent with no hidden costs.</div></div>
-      </div>
-      <div class="faq-item reveal">
-        <div class="faq-q">Do you work with clients outside Gurugram? <i class="fas fa-chevron-down"></i></div>
-        <div class="faq-a"><div class="faq-a-inner">Absolutely! We work with clients across India and internationally. Everything is handled remotely via WhatsApp, Zoom, and email. Distance is never a barrier.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Typically 50% advance and 50% on delivery. For larger or ongoing engagements, we offer milestone-based or monthly retainer structures. Everything is transparent — no hidden costs.</div></div>
       </div>
       <div class="faq-item reveal">
         <div class="faq-q">How many revisions are included? <i class="fas fa-chevron-down"></i></div>
-        <div class="faq-a"><div class="faq-a-inner">All our packages include a minimum of 2-3 revision rounds. We work until you're completely satisfied with the output. Additional revisions beyond scope are charged nominally.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Every package includes structured revision rounds, and we work until you're satisfied with the outcome. We'll set clear expectations on scope during the discovery call.</div></div>
       </div>
       <div class="faq-item reveal">
-        <div class="faq-q">Can you handle multiple services simultaneously? <i class="fas fa-chevron-down"></i></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes! That's our specialty. Our in-house team of specialists can handle design, video, web, and marketing simultaneously, ensuring brand consistency across all channels.</div></div>
+        <div class="faq-q">Do you offer ongoing support after launch? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes. We believe growth doesn't end at delivery. Most clients continue with us on a retainer basis for optimization, marketing, maintenance or scaling support.</div></div>
       </div>
     </div>
   </div>
@@ -218,12 +223,12 @@
 
 <section id="cta">
   <div class="container reveal">
-    <span class="section-label">Let's Work Together</span>
-    <h2>Ready to Get <span class="gradient-text">Started?</span></h2>
-    <p>Pick a service and let's build something amazing together.</p>
+    <span class="section-label">Not Sure Where to Start?</span>
+    <h2>Let's Figure It Out <span class="gradient-text">Together</span></h2>
+    <p>Book a free discovery call — we'll help you identify exactly what your business needs.</p>
     <div class="cta-btns">
       <a href="https://wa.me/918081871440" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
-      <a href="contact.html" class="btn btn-primary">Get Free Consultation</a>
+      <a href="contact.html" class="btn btn-primary">Book a Discovery Call</a>
     </div>
   </div>
 </section>
@@ -233,32 +238,31 @@
     <div class="footer-grid">
       <div class="footer-col">
         <a href="index.html" class="nav-logo" style="font-size:1.8rem;display:inline-block;margin-bottom:12px">Upfigure</a>
-        <p>Your Vision, Our Execution. Full-service creative agency in Gurugram.</p>
+        <p>Your business growth partner. Remote-first team serving businesses across India and globally.</p>
         <div class="social-links"><a href="#" class="social-link"><i class="fab fa-instagram"></i></a><a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a><a href="#" class="social-link"><i class="fab fa-youtube"></i></a></div>
       </div>
       <div class="footer-col"><h4>Quick Links</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-      <div class="footer-col"><h4>Services</h4><ul class="footer-links"><li><a href="services.html">Graphics Design</a></li><li><a href="services.html">Video Editing</a></li><li><a href="services.html">Web Development</a></li><li><a href="services.html">App Development</a></li><li><a href="services.html">Performance Marketing</a></li></ul></div>
-      <div class="footer-col"><h4>Contact</h4><ul class="footer-contact"><li><i class="fab fa-whatsapp"></i><a href="https://wa.me/918081871440" style="color:inherit;text-decoration:none">+91 8081871440</a></li><li><i class="fas fa-envelope"></i>hello.prashantseo@gmail.com</li><li><i class="fas fa-map-marker-alt"></i>Gurugram, Haryana</li><li><i class="fas fa-clock"></i>Mon–Sat: 10AM–7PM</li></ul></div>
+      <div class="footer-col"><h4>What We Do</h4><ul class="footer-links"><li><a href="services.html#dev">Development</a></li><li><a href="services.html#design">Design</a></li><li><a href="services.html#marketing">Marketing</a></li><li><a href="services.html#growth">Growth</a></li><li><a href="services.html#ai">AI &amp; Automation</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul class="footer-contact"><li><i class="fab fa-whatsapp"></i><a href="https://wa.me/918081871440" style="color:inherit;text-decoration:none">+91 8081871440</a></li><li><i class="fas fa-envelope"></i><a href="mailto:hello.prashantseo@gmail.com" style="color:inherit;text-decoration:none">hello.prashantseo@gmail.com</a></li><li><i class="fas fa-globe"></i>Remote-First · Serving Globally</li><li><i class="fas fa-clock"></i>Mon–Sat: 10AM–7PM IST</li></ul></div>
     </div>
   </div>
-  <div class="footer-bottom"><div class="container">© 2024 Upfigure. All Rights Reserved. | Made with ❤️ in Gurugram</div></div>
+  <div class="footer-bottom"><div class="container">© 2025 Upfigure. All Rights Reserved. | Your Business Growth Partner</div></div>
 </footer>
 
 <a href="https://wa.me/918081871440" target="_blank" class="float-whatsapp"><i class="fab fa-whatsapp"></i></a>
 <button class="float-back-top" id="back-top"><i class="fas fa-chevron-up"></i></button>
-<button class="float-chatbot-btn" id="chatbot-btn">🤖<div class="chat-badge" id="chat-badge">1</div></button>
+<button class="float-chatbot-btn" id="chatbot-btn" title="Chat with us"><div class="chat-badge" id="chat-badge">1</div></button>
 <div id="chatbot-panel">
-  <div class="chat-header"><div class="chat-avatar">🤖</div><div class="chat-header-info"><div class="chat-header-name">Upfigure AI</div><div class="chat-header-status"><div class="chat-online-dot"></div> Online</div></div><button class="chat-close" id="chat-close"><i class="fas fa-times"></i></button></div>
+  <div class="chat-header"><div class="chat-avatar"></div><div class="chat-header-info"><div class="chat-header-name">Upfigure Support</div><div class="chat-header-status"><div class="chat-online-dot"></div> Online · here to help</div></div><button class="chat-close" id="chat-close"><i class="fas fa-times"></i></button></div>
   <div class="chat-messages" id="chat-messages"></div>
-  <div class="chat-input-area"><input type="text" class="chat-input" id="chat-input" placeholder="Ask me anything..."/><button class="chat-send" id="chat-send"><i class="fas fa-paper-plane"></i></button></div>
+  <div class="chat-input-area"><input type="text" class="chat-input" id="chat-input" placeholder="How can we help your business?"/><button class="chat-send" id="chat-send"><i class="fas fa-paper-plane"></i></button></div>
 </div>
 <script src="js/main.js"></script>
 <script>
-document.querySelectorAll('.faq-q').forEach(q=>{
-  q.addEventListener('click',()=>{
-    const item=q.parentElement;
-    document.querySelectorAll('.faq-item').forEach(i=>{if(i!==item)i.classList.remove('open')});
-    item.classList.toggle('open');
+document.querySelectorAll('.category-nav a').forEach(a => {
+  a.addEventListener('click', () => {
+    document.querySelectorAll('.category-nav a').forEach(x => x.classList.remove('active'));
+    a.classList.add('active');
   });
 });
 </script>

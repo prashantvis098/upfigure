@@ -1,0 +1,103 @@
+/* ================================================================
+   UPFIGURE — CHATBOT HUMAN LOOK
+   Paste at the END of css/style.css  (after premium-fixes.css)
+   ================================================================ */
+
+
+/* ── Floating Button: Robot Purple → Support Green ── */
+.float-chatbot-btn {
+  background: linear-gradient(135deg, #128C7E 0%, #25D366 100%) !important;
+  box-shadow: 0 4px 22px rgba(37, 211, 102, 0.38) !important;
+}
+
+/* Remove the robotic spinning ring */
+.float-chatbot-btn::before {
+  display: none !important;
+}
+
+/* Headset icon instead of robot */
+.float-chatbot-btn::after {
+  content: '\f590' !important; /* fa-headset */
+  font-family: "Font Awesome 6 Free" !important;
+  font-weight: 900 !important;
+  font-size: 1.28rem !important;
+  line-height: 1;
+}
+
+/* Pulse: support green glow */
+@keyframes pulse-support {
+  0%,100% { box-shadow: 0 4px 22px rgba(18,140,126,0.4); }
+  50%      { box-shadow: 0 4px 44px rgba(37,211,102,0.65); }
+}
+.float-chatbot-btn {
+  animation: pulse-support 2.5s infinite !important;
+}
+
+/* Hover */
+.float-chatbot-btn:hover {
+  background: linear-gradient(135deg, #0f7a6e 0%, #1db954 100%) !important;
+}
+
+
+/* ── Chat Panel Header ── */
+.chat-header {
+  background: linear-gradient(135deg,
+    rgba(18,140,126,0.22),
+    rgba(37,211,102,0.09)) !important;
+  border-bottom: 1px solid rgba(37,211,102,0.14) !important;
+}
+
+/* Avatar: shows initials "UP" — very human feel */
+.chat-avatar {
+  background: linear-gradient(135deg, #128C7E, #25D366) !important;
+  font-size: 0 !important;          /* hide emoji */
+  position: relative;
+}
+
+/* Remove the FA robot ::before, show initials instead */
+.chat-avatar::before {
+  content: 'UP' !important;
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 0.82rem !important;
+  color: #fff !important;
+  letter-spacing: 0.5px;
+}
+
+/* Online dot: keep green */
+.chat-online-dot {
+  background: #25D366 !important;
+  box-shadow: 0 0 6px #25D366 !important;
+}
+
+
+/* ── Send button: match green ── */
+.chat-send {
+  background: linear-gradient(135deg, #128C7E, #25D366) !important;
+}
+
+/* ── User bubble: green instead of purple ── */
+.user .chat-bubble {
+  background: linear-gradient(135deg, #128C7E, #25D366) !important;
+}
+
+/* ── Quick reply buttons ── */
+.quick-reply-btn {
+  border-color: rgba(37, 211, 102, 0.35) !important;
+  color: #25D366 !important;
+}
+.quick-reply-btn:hover {
+  background: rgba(37, 211, 102, 0.1) !important;
+  border-color: rgba(37, 211, 102, 0.55) !important;
+}
+
+/* ── Chat input focus ── */
+.chat-input:focus {
+  border-color: #25D366 !important;
+  box-shadow: 0 0 0 2px rgba(37,211,102,0.12) !important;
+}
+
+/* ── Badge ── */
+.chat-badge {
+  background: #ff4444 !important;
+}

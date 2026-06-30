@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Contact — Upfigure Creative Agency</title>
+<title>Contact — Upfigure | Book a Discovery Call</title>
+<meta name="description" content="Book a free discovery call with Upfigure. Tell us about your business and we'll tell you exactly how we can help — no pressure, no commitment."/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 <link rel="stylesheet" href="css/style.css"/>
+<link rel="stylesheet" href="css/chatbot-human.css"/>
 <style>
 .contact-hero{min-height:45vh;display:flex;align-items:center;background:radial-gradient(ellipse at 50% 60%,rgba(0,170,255,0.07),transparent 65%);padding-top:120px}
 .contact-split{display:grid;grid-template-columns:1fr 1.3fr;gap:60px;align-items:start;margin-top:60px}
@@ -23,23 +25,23 @@
 .reason-card i{color:var(--accent-blue);font-size:1.2rem;margin-bottom:8px;display:block}
 .reason-card h4{font-size:0.8rem;margin-bottom:4px}
 .reason-card p{color:var(--text-muted);font-size:0.72rem}
-/* Form */
 .contact-form{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:var(--radius);padding:40px 36px}
 @media(max-width:600px){.contact-form{padding:28px 20px}}
 .form-group{margin-bottom:20px}
 .form-label{display:block;font-size:0.82rem;font-weight:600;margin-bottom:8px;color:var(--text-secondary)}
+.form-label span{color:var(--text-muted);font-weight:400;margin-left:4px}
 .form-input,.form-select,.form-textarea{width:100%;background:rgba(255,255,255,0.04);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:13px 16px;color:var(--text-primary);font-family:var(--font-body);font-size:0.9rem;outline:none;transition:var(--transition)}
 .form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--accent-blue);box-shadow:0 0 0 3px rgba(0,170,255,0.08)}
 .form-select{cursor:pointer}
 .form-select option{background:#1a1a1a;color:var(--text-primary)}
-.form-textarea{resize:vertical;min-height:120px}
+.form-textarea{resize:vertical;min-height:110px}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 @media(max-width:500px){.form-row{grid-template-columns:1fr}}
 .btn-submit{width:100%;padding:16px;font-size:1rem;border-radius:var(--radius-sm);justify-content:center;margin-top:8px;cursor:pointer}
 .form-success{display:none;text-align:center;padding:32px;background:rgba(0,255,136,0.06);border:1px solid rgba(0,255,136,0.2);border-radius:var(--radius);margin-top:16px}
 .form-success i{font-size:3rem;color:#00ff88;margin-bottom:16px}
-.map-placeholder{width:100%;height:280px;background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;color:var(--text-muted);font-size:0.9rem;margin-top:60px}
-.map-placeholder i{font-size:2.5rem;color:var(--accent-blue)}
+.map-placeholder{width:100%;height:200px;background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;color:var(--text-muted);font-size:0.9rem;margin-top:60px}
+.map-placeholder i{font-size:2rem;color:var(--accent-blue)}
 .faq-item{background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:var(--radius-sm);margin-bottom:12px;overflow:hidden}
 .faq-q{padding:18px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:0.95rem;transition:var(--transition)}
 .faq-q:hover{color:var(--accent-blue)}
@@ -65,23 +67,23 @@
     </ul>
     <div class="nav-right">
       <button class="theme-toggle" id="theme-toggle">☀️</button>
-      <a href="contact.html" class="btn btn-primary">Get Quote</a>
+      <a href="contact.html" class="btn btn-primary">Book a Call</a>
     </div>
     <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <div class="mobile-menu" id="mobile-menu">
   <a href="index.html">Home</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="about.html">About</a><a href="contact.html">Contact</a>
-  <a href="contact.html" class="btn btn-primary" style="margin-top:8px">Get Quote</a>
+  <a href="contact.html" class="btn btn-primary" style="margin-top:8px">Book a Call</a>
 </div>
 
 <!-- HERO -->
 <section class="contact-hero">
   <div class="container">
     <div class="text-center reveal">
-      <span class="section-label">Get In Touch</span>
-      <h1 class="section-title" style="font-size:clamp(2.5rem,5vw,4rem)">Let's Work <span class="gradient-text">Together</span></h1>
-      <p class="section-sub" style="margin:0 auto">Tell us about your project and we'll get back to you within 1 hour.</p>
+      <span class="section-label">Let's Talk</span>
+      <h1 class="section-title" style="font-size:clamp(2.5rem,5vw,4rem)">Start With a <span class="gradient-text">Conversation</span></h1>
+      <p class="section-sub" style="margin:0 auto">Tell us about your business. We'll listen, understand your challenges, and tell you honestly how we can help.</p>
     </div>
   </div>
 </section>
@@ -93,13 +95,13 @@
 
       <!-- LEFT: Info -->
       <div class="reveal-left">
-        <span class="section-label">Contact Info</span>
-        <h2 style="font-size:1.8rem;margin-bottom:28px">Reach Us <span class="gradient-text">Directly</span></h2>
+        <span class="section-label">Reach Us</span>
+        <h2 style="font-size:1.8rem;margin-bottom:28px">We're <span class="gradient-text">Here to Help</span></h2>
 
         <a href="https://wa.me/918081871440" target="_blank" style="text-decoration:none;display:block;margin-bottom:16px">
           <div class="contact-info-item" style="border-color:rgba(37,211,102,0.2)">
             <div class="contact-info-icon" style="background:#25D366"><i class="fab fa-whatsapp"></i></div>
-            <div><div class="contact-info-label">WhatsApp (Fastest)</div><div class="contact-info-value">+91 8081871440</div></div>
+            <div><div class="contact-info-label">WhatsApp (Fastest Response)</div><div class="contact-info-value">+91 8081871440</div></div>
           </div>
         </a>
 
@@ -109,8 +111,8 @@
             <div><div class="contact-info-label">Email Us</div><div class="contact-info-value"><a href="mailto:hello.prashantseo@gmail.com">hello.prashantseo@gmail.com</a></div></div>
           </div>
           <div class="contact-info-item">
-            <div class="contact-info-icon"><i class="fas fa-map-marker-alt"></i></div>
-            <div><div class="contact-info-label">Location</div><div class="contact-info-value">Gurugram, Haryana, India</div></div>
+            <div class="contact-info-icon"><i class="fas fa-globe"></i></div>
+            <div><div class="contact-info-label">We Work With</div><div class="contact-info-value">Clients across India &amp; globally</div></div>
           </div>
           <div class="contact-info-item">
             <div class="contact-info-icon"><i class="fas fa-clock"></i></div>
@@ -119,24 +121,19 @@
         </div>
 
         <div class="reason-cards">
-          <div class="reason-card">
-            <i class="fas fa-bolt"></i>
-            <h4>Fast Reply</h4>
-            <p>Within 1 hour</p>
-          </div>
-          <div class="reason-card">
-            <i class="fas fa-gift"></i>
-            <h4>Free Consult</h4>
-            <p>No obligation</p>
-          </div>
-          <div class="reason-card">
-            <i class="fas fa-medal"></i>
-            <h4>Expert Team</h4>
-            <p>In-house only</p>
-          </div>
+          <div class="reason-card"><i class="fas fa-bolt"></i><h4>Fast Reply</h4><p>Within 1 hour</p></div>
+          <div class="reason-card"><i class="fas fa-comments"></i><h4>Free Call</h4><p>No obligation</p></div>
+          <div class="reason-card"><i class="fas fa-shield-alt"></i><h4>NDA Ready</h4><p>Your idea is safe</p></div>
         </div>
 
-        <div style="margin-top:28px">
+        <div style="margin-top:32px;background:var(--glass-bg);border:1px solid var(--glass-border);border-radius:var(--radius-sm);padding:20px 18px">
+          <p style="font-size:0.82rem;color:var(--text-secondary);line-height:1.7">
+            <strong style="color:var(--text-primary)">Not sure what you need?</strong><br/>
+            That's perfectly fine — most of our clients start the same way. Just tell us about your business and what you're trying to achieve. We'll figure out the rest together.
+          </p>
+        </div>
+
+        <div style="margin-top:24px">
           <p style="color:var(--text-muted);font-size:0.8rem;margin-bottom:12px">Follow Us</p>
           <div class="social-links">
             <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
@@ -149,87 +146,164 @@
       <!-- RIGHT: Form -->
       <div class="reveal-right">
         <div class="contact-form">
-          <h3 style="font-size:1.4rem;margin-bottom:6px">Send Us a Message</h3>
-          <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:28px">We'll respond with a detailed proposal within 24 hours.</p>
+          <h3 style="font-size:1.4rem;margin-bottom:6px">Tell Us About Your Business</h3>
+          <p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:28px">We'll review your details and respond with a clear, honest proposal within 24 hours.</p>
 
-          <form id="contact-form" name="contact" data-netlify="true" netlify-honeypot="bot-field" action="/">
-            <input type="hidden" name="form-name" value="contact"/>
-            <p style="display:none"><input name="bot-field"/></p>
+          <form id="contact-form">
 
             <div class="form-row">
               <div class="form-group">
-                <label class="form-label">Full Name *</label>
-                <input type="text" name="name" class="form-input" placeholder="Your full name" required/>
+                <label class="form-label">Your Name *</label>
+                <input type="text" name="from_name" class="form-input" placeholder="John Smith" required/>
               </div>
               <div class="form-group">
+                <label class="form-label">Business Name *</label>
+                <input type="text" name="business_name" class="form-input" placeholder="Acme Pvt. Ltd." required/>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
                 <label class="form-label">Email Address *</label>
-                <input type="email" name="email" class="form-input" placeholder="you@example.com" required/>
+                <input type="email" name="from_email" class="form-input" placeholder="you@company.com" required/>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Phone Number *</label>
+                <input type="tel" name="phone" class="form-input" placeholder="+91 XXXXX XXXXX" required/>
               </div>
             </div>
 
             <div class="form-group">
-              <label class="form-label">Phone Number *</label>
-              <input type="tel" name="phone" class="form-input" placeholder="+91 XXXXX XXXXX" required/>
+              <label class="form-label">Website URL <span>(optional)</span></label>
+              <input type="url" name="website" class="form-input" placeholder="https://yourwebsite.com"/>
             </div>
 
             <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Your Industry *</label>
+                <select name="industry" class="form-select" required>
+                  <option value="" disabled selected>Select your industry</option>
+                  <option>Healthcare &amp; Medical</option>
+                  <option>Real Estate &amp; Property</option>
+                  <option>Retail &amp; E-commerce</option>
+                  <option>Finance &amp; Fintech</option>
+                  <option>Education &amp; EdTech</option>
+                  <option>Hospitality &amp; F&amp;B</option>
+                  <option>Professional Services</option>
+                  <option>Technology &amp; SaaS</option>
+                  <option>Construction &amp; Infrastructure</option>
+                  <option>Manufacturing &amp; Industrial</option>
+                  <option>Startup / Early-Stage</option>
+                  <option>Legal &amp; Compliance</option>
+                  <option>Other</option>
+                </select>
+              </div>
               <div class="form-group">
                 <label class="form-label">Service Interested In *</label>
                 <select name="service" class="form-select" required>
-                  <option value="" disabled selected>Select a service</option>
-                  <option>Graphics Design</option>
-                  <option>Video Editing</option>
-                  <option>Cinematography</option>
-                  <option>Photography</option>
-                  <option>Website Design</option>
-                  <option>Web Development</option>
-                  <option>App Design</option>
-                  <option>iOS &amp; Android Dev</option>
-                  <option>Landing Pages</option>
-                  <option>Social Media</option>
-                  <option>Performance Marketing</option>
-                  <option>Social Media Management</option>
-                  <option>Multiple Services</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label class="form-label">Project Budget</label>
-                <select name="budget" class="form-select">
-                  <option value="" disabled selected>Select budget</option>
-                  <option>Under ₹10,000</option>
-                  <option>₹10,000 – ₹50,000</option>
-                  <option>₹50,000 – ₹1 Lakh</option>
-                  <option>₹1 Lakh+</option>
-                  <option>Let's Discuss</option>
+                  <option value="" disabled selected>What do you need?</option>
+                  <optgroup label="Development">
+                    <option>Business Website</option>
+                    <option>Web Application / SaaS</option>
+                    <option>E-commerce / Shopify</option>
+                    <option>Mobile App (iOS / Android)</option>
+                    <option>Landing Page</option>
+                    <option>Website Redesign</option>
+                  </optgroup>
+                  <optgroup label="Design">
+                    <option>Brand Identity &amp; Logo</option>
+                    <option>UI/UX Design</option>
+                    <option>Video Production</option>
+                    <option>Photography</option>
+                    <option>Social Media Creatives</option>
+                  </optgroup>
+                  <optgroup label="Marketing">
+                    <option>SEO &amp; Content Marketing</option>
+                    <option>Google Ads / PPC</option>
+                    <option>Meta Ads (Facebook / Instagram)</option>
+                    <option>Social Media Management</option>
+                    <option>Performance Marketing</option>
+                  </optgroup>
+                  <optgroup label="Growth &amp; AI">
+                    <option>Lead Generation</option>
+                    <option>CRM Setup &amp; Automation</option>
+                    <option>AI Chatbot / AI Agent</option>
+                    <option>Workflow Automation</option>
+                    <option>Sales Funnel</option>
+                    <option>Growth Strategy</option>
+                  </optgroup>
+                  <option>Multiple / Not Sure Yet</option>
                 </select>
               </div>
             </div>
 
             <div class="form-group">
-              <label class="form-label">Tell Us About Your Project</label>
-              <textarea name="message" class="form-textarea" placeholder="Describe your project, goals, and any specific requirements..."></textarea>
+              <label class="form-label">Biggest Business Challenge *</label>
+              <select name="challenge" class="form-select" required>
+                <option value="" disabled selected>What's your main challenge right now?</option>
+                <option>Not getting enough leads or enquiries</option>
+                <option>Website doesn't convert visitors</option>
+                <option>No strong online presence / brand</option>
+                <option>Running ads but not seeing ROI</option>
+                <option>Need to automate manual processes</option>
+                <option>Want to enter a new market</option>
+                <option>Team is spending too much time on repetitive tasks</option>
+                <option>Need a complete digital strategy</option>
+                <option>Something else — I'll describe below</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Project Budget <span>(optional)</span></label>
+                <select name="budget" class="form-select">
+                  <option value="" disabled selected>Approximate budget</option>
+                  <option>Under ₹10,000</option>
+                  <option>₹10,000 – ₹50,000</option>
+                  <option>₹50,000 – ₹1 Lakh</option>
+                  <option>₹1 Lakh – ₹5 Lakh</option>
+                  <option>₹5 Lakh+</option>
+                  <option>Let's Discuss</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Timeline *</label>
+                <select name="timeline" class="form-select" required>
+                  <option value="" disabled selected>When do you need this?</option>
+                  <option>ASAP (within 1 week)</option>
+                  <option>Within 2–4 weeks</option>
+                  <option>Within 1–2 months</option>
+                  <option>Within 3–6 months</option>
+                  <option>No rush — planning ahead</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Tell Us More <span>(optional but helpful)</span></label>
+              <textarea name="message" class="form-textarea" placeholder="Share any additional context — what you've tried before, what you're envisioning, or any other details that would help us prepare for our call..."></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary btn-submit">
-              <i class="fas fa-paper-plane"></i> Send Message
+              <i class="fas fa-paper-plane"></i> Send &amp; Book a Call
             </button>
+            <p style="text-align:center;margin-top:12px;font-size:0.75rem;color:var(--text-muted)">We'll respond within 24 hours. No spam, no cold calls.</p>
           </form>
 
           <div class="form-success" id="form-success">
             <i class="fas fa-check-circle"></i>
-            <h3 style="margin-bottom:8px">Message Sent! 🎉</h3>
-            <p style="color:var(--text-secondary);font-size:0.9rem">Thank you for reaching out. We'll get back to you within 1 hour.</p>
-            <a href="https://wa.me/918081871440" target="_blank" class="btn btn-whatsapp" style="margin-top:20px;display:inline-flex"><i class="fab fa-whatsapp"></i> WhatsApp for Faster Reply</a>
+            <h3 style="margin-bottom:8px">Message Received!</h3>
+            <p style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:20px">Thanks for reaching out. We'll review your details and respond within 24 hours with a clear, honest proposal.</p>
+            <a href="https://wa.me/918081871440" target="_blank" class="btn btn-whatsapp" style="display:inline-flex"><i class="fab fa-whatsapp"></i> WhatsApp for a Faster Reply</a>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- MAP -->
     <div class="map-placeholder reveal">
-      <i class="fas fa-map-marker-alt"></i>
-      <p><strong>Upfigure</strong> — Gurugram, Haryana, India</p>
-      <p style="font-size:0.8rem">Remote-first agency · Serving clients across India &amp; globally</p>
+      <i class="fas fa-globe"></i>
+      <p><strong>Upfigure</strong> — Remote-First Team</p>
+      <p style="font-size:0.8rem">Serving businesses across India, USA, UK, UAE, Canada, Australia &amp; globally</p>
     </div>
   </div>
 </section>
@@ -239,28 +313,32 @@
   <div class="container" style="max-width:760px">
     <div class="text-center reveal">
       <span class="section-label">FAQ</span>
-      <h2 class="section-title">Common <span class="gradient-text">Questions</span></h2>
+      <h2 class="section-title">Before You <span class="gradient-text">Reach Out</span></h2>
     </div>
     <div style="margin-top:48px">
       <div class="faq-item reveal">
+        <div class="faq-q">Is the discovery call really free? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes — 100% free with zero obligation. We'll understand your business, ask the right questions, and share an honest view of how we can help. You decide whether to proceed. No pressure, ever.</div></div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q">What if I'm not sure what I need? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-a"><div class="faq-a-inner">That's exactly why we have the discovery call. Just tell us your business challenge and your goal. We'll help you figure out the right solution — whether that's a website, ads, AI automation, or something else entirely.</div></div>
+      </div>
+      <div class="faq-item reveal">
         <div class="faq-q">How quickly will you respond? <i class="fas fa-chevron-down"></i></div>
-        <div class="faq-a"><div class="faq-a-inner">We typically respond within 1 hour on WhatsApp and within 4 hours via email during working hours (Mon-Sat, 10AM-7PM IST). For urgent requirements, WhatsApp is the fastest.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">We respond within 1 hour on WhatsApp and within 24 hours on email during business hours (Mon–Sat, 10AM–7PM IST). For urgent needs, WhatsApp is the fastest channel.</div></div>
       </div>
       <div class="faq-item reveal">
-        <div class="faq-q">Is the consultation really free? <i class="fas fa-chevron-down"></i></div>
-        <div class="faq-a"><div class="faq-a-inner">Yes, 100% free with zero obligation. We'll discuss your project, understand your requirements, and share a detailed proposal. You decide whether to proceed — no pressure.</div></div>
+        <div class="faq-q">Do you sign NDAs before discussing my project? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-a"><div class="faq-a-inner">Absolutely. We sign NDAs and work agreements before any project begins. Your ideas, business information and strategy are completely safe with us. Transparency is a core value at Upfigure.</div></div>
       </div>
       <div class="faq-item reveal">
-        <div class="faq-q">What information should I share to get a quote? <i class="fas fa-chevron-down"></i></div>
-        <div class="faq-a"><div class="faq-a-inner">The more detail, the better! Share the type of service needed, your target audience, brand references you like, timeline, and budget range. This helps us create a precise proposal for you.</div></div>
+        <div class="faq-q">Do you work with clients outside India? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes — we're a remote-first team and we work with clients across India, USA, UK, UAE, Canada, Australia and globally. All communication happens via WhatsApp, Zoom and email. Location is never a barrier.</div></div>
       </div>
       <div class="faq-item reveal">
-        <div class="faq-q">Do you sign NDAs and contracts? <i class="fas fa-chevron-down"></i></div>
-        <div class="faq-a"><div class="faq-a-inner">Absolutely. We sign NDAs and work agreements before starting any project. Your ideas and business information are completely safe with us. Transparency and trust are our core values.</div></div>
-      </div>
-      <div class="faq-item reveal">
-        <div class="faq-q">Can I meet the team in person? <i class="fas fa-chevron-down"></i></div>
-        <div class="faq-a"><div class="faq-a-inner">We're a remote-first agency based in Gurugram. We conduct all meetings via Zoom, Google Meet, or WhatsApp video call. For Gurugram-based clients, we can arrange in-person meetings on request.</div></div>
+        <div class="faq-q">What happens after I submit this form? <i class="fas fa-chevron-down"></i></div>
+        <div class="faq-a"><div class="faq-a-inner">We review your details, do some initial research on your business and market, then reach out to schedule a discovery call. In that call, we listen more than we talk. After, we send you a clear proposal tailored to your specific situation.</div></div>
       </div>
     </div>
   </div>
@@ -269,9 +347,9 @@
 <!-- CTA -->
 <section id="cta">
   <div class="container reveal">
-    <span class="section-label">Quick Connect</span>
-    <h2>Prefer to <span class="gradient-text">WhatsApp?</span></h2>
-    <p>Skip the form — message us directly and get a response in minutes.</p>
+    <span class="section-label">Prefer WhatsApp?</span>
+    <h2>Let's Talk <span class="gradient-text">Right Now</span></h2>
+    <p>Skip the form and message us directly. We're here Mon–Sat, 10AM–7PM IST and respond within the hour.</p>
     <div class="cta-btns">
       <a href="https://wa.me/918081871440" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Message on WhatsApp</a>
       <a href="mailto:hello.prashantseo@gmail.com" class="btn btn-outline"><i class="fas fa-envelope"></i> Send an Email</a>
@@ -282,53 +360,23 @@
 <footer>
   <div class="container">
     <div class="footer-grid">
-      <div class="footer-col"><a href="index.html" class="nav-logo" style="font-size:1.8rem;display:inline-block;margin-bottom:12px">Upfigure</a><p>Your Vision, Our Execution. Full-service creative agency in Gurugram.</p><div class="social-links"><a href="#" class="social-link"><i class="fab fa-instagram"></i></a><a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a><a href="#" class="social-link"><i class="fab fa-youtube"></i></a></div></div>
+      <div class="footer-col"><a href="index.html" class="nav-logo" style="font-size:1.8rem;display:inline-block;margin-bottom:12px">Upfigure</a><p>Your business growth partner. Remote-first team serving businesses across India and globally.</p><div class="social-links"><a href="#" class="social-link"><i class="fab fa-instagram"></i></a><a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a><a href="#" class="social-link"><i class="fab fa-youtube"></i></a></div></div>
       <div class="footer-col"><h4>Quick Links</h4><ul class="footer-links"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-      <div class="footer-col"><h4>Services</h4><ul class="footer-links"><li><a href="services.html">Graphics Design</a></li><li><a href="services.html">Video Editing</a></li><li><a href="services.html">Web Development</a></li><li><a href="services.html">App Development</a></li><li><a href="services.html">Performance Marketing</a></li></ul></div>
-      <div class="footer-col"><h4>Contact</h4><ul class="footer-contact"><li><i class="fab fa-whatsapp"></i><a href="https://wa.me/918081871440" style="color:inherit;text-decoration:none">+91 8081871440</a></li><li><i class="fas fa-envelope"></i>hello.prashantseo@gmail.com</li><li><i class="fas fa-map-marker-alt"></i>Gurugram, Haryana</li><li><i class="fas fa-clock"></i>Mon–Sat: 10AM–7PM</li></ul></div>
+      <div class="footer-col"><h4>What We Do</h4><ul class="footer-links"><li><a href="services.html">Web &amp; App Development</a></li><li><a href="services.html">Brand Identity &amp; Design</a></li><li><a href="services.html">Performance Marketing</a></li><li><a href="services.html">AI Automation &amp; Agents</a></li><li><a href="services.html">Lead Generation</a></li></ul></div>
+      <div class="footer-col"><h4>Get in Touch</h4><ul class="footer-contact"><li><i class="fab fa-whatsapp"></i><a href="https://wa.me/918081871440" style="color:inherit;text-decoration:none">+91 8081871440</a></li><li><i class="fas fa-envelope"></i><a href="mailto:hello.prashantseo@gmail.com" style="color:inherit;text-decoration:none">hello.prashantseo@gmail.com</a></li><li><i class="fas fa-globe"></i>Remote-First · Serving Globally</li><li><i class="fas fa-clock"></i>Mon–Sat: 10AM–7PM IST</li></ul></div>
     </div>
   </div>
-  <div class="footer-bottom"><div class="container">© 2024 Upfigure. All Rights Reserved. | Made with ❤️ in Gurugram</div></div>
+  <div class="footer-bottom"><div class="container">© 2025 Upfigure. All Rights Reserved. | Your Business Growth Partner</div></div>
 </footer>
 
 <a href="https://wa.me/918081871440" target="_blank" class="float-whatsapp"><i class="fab fa-whatsapp"></i></a>
 <button class="float-back-top" id="back-top"><i class="fas fa-chevron-up"></i></button>
-<button class="float-chatbot-btn" id="chatbot-btn">🤖<div class="chat-badge" id="chat-badge">1</div></button>
+<button class="float-chatbot-btn" id="chatbot-btn" title="Chat with us"><div class="chat-badge" id="chat-badge">1</div></button>
 <div id="chatbot-panel">
-  <div class="chat-header"><div class="chat-avatar">🤖</div><div class="chat-header-info"><div class="chat-header-name">Upfigure AI</div><div class="chat-header-status"><div class="chat-online-dot"></div> Online</div></div><button class="chat-close" id="chat-close"><i class="fas fa-times"></i></button></div>
+  <div class="chat-header"><div class="chat-avatar"></div><div class="chat-header-info"><div class="chat-header-name">Upfigure Support</div><div class="chat-header-status"><div class="chat-online-dot"></div> Online · here to help</div></div><button class="chat-close" id="chat-close"><i class="fas fa-times"></i></button></div>
   <div class="chat-messages" id="chat-messages"></div>
-  <div class="chat-input-area"><input type="text" class="chat-input" id="chat-input" placeholder="Ask me anything..."/><button class="chat-send" id="chat-send"><i class="fas fa-paper-plane"></i></button></div>
+  <div class="chat-input-area"><input type="text" class="chat-input" id="chat-input" placeholder="How can we help your business?"/><button class="chat-send" id="chat-send"><i class="fas fa-paper-plane"></i></button></div>
 </div>
-
 <script src="js/main.js"></script>
-<script>
-// FAQ accordion
-document.querySelectorAll('.faq-q').forEach(q => {
-  q.addEventListener('click', () => {
-    const item = q.parentElement;
-    document.querySelectorAll('.faq-item').forEach(i => { if (i !== item) i.classList.remove('open'); });
-    item.classList.toggle('open');
-  });
-});
-
-// Form submit — show success
-document.getElementById('contact-form')?.addEventListener('submit', function(e) {
-  const fields = this.querySelectorAll('[required]');
-  let valid = true;
-  fields.forEach(f => { f.style.borderColor = ''; if (!f.value.trim()) { f.style.borderColor = '#ff4444'; valid = false; } });
-  if (!valid) { e.preventDefault(); return; }
-  // For Netlify forms, allow submission — but also show success UI
-  const btn = this.querySelector('button[type="submit"]');
-  if (btn) { btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...'; btn.disabled = true; }
-  // If NOT on Netlify (local dev), prevent default and show success
-  if (window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost') {
-    e.preventDefault();
-    setTimeout(() => {
-      this.style.display = 'none';
-      document.getElementById('form-success').style.display = 'block';
-    }, 1200);
-  }
-});
-</script>
 </body>
 </html>

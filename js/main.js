@@ -1,5 +1,5 @@
 /* ========================================
-   UPFIGURE — main.js
+   UPFIGURE — main.js (Updated v2)
    ======================================== */
 
 /* ── CUSTOM CURSOR ── */
@@ -33,7 +33,6 @@ const mobileMenu = document.getElementById('mobile-menu');
 
 window.addEventListener('scroll', () => {
   navbar && (navbar.classList.toggle('scrolled', window.scrollY > 50));
-  // Back to top
   const btn = document.getElementById('back-top');
   btn && btn.classList.toggle('show', window.scrollY > 300);
 });
@@ -82,16 +81,29 @@ function initHeroAnimation() {
 }
 window.addEventListener('load', initHeroAnimation);
 
-/* ── TYPING ANIMATION ── */
+/* ── TYPING ANIMATION — Updated Words ── */
 function initTyping() {
   const el = document.querySelector('.typed-text');
   if (!el) return;
-  const words = ['Design', 'Development', 'Marketing', 'Photography', 'Branding'];
+  const words = [
+    'Growth Strategy',
+    'Web Development',
+    'AI Automation',
+    'Performance Marketing',
+    'Brand Identity',
+    'Mobile Apps',
+    'Lead Generation',
+    'UI/UX Design',
+    'CRM Automation',
+    'Business Strategy',
+    'SEO & Content',
+    'AI Agents'
+  ];
   let wi = 0, ci = 0, deleting = false;
   function type() {
     const word = words[wi];
     el.textContent = deleting ? word.substring(0, ci--) : word.substring(0, ci++);
-    let delay = deleting ? 60 : 100;
+    let delay = deleting ? 55 : 95;
     if (!deleting && ci === word.length + 1) { delay = 1800; deleting = true; }
     if (deleting && ci === 0) { deleting = false; wi = (wi + 1) % words.length; delay = 300; }
     setTimeout(type, delay);
@@ -163,38 +175,23 @@ function initThreeSphere() {
   if (typeof THREE === 'undefined') return;
   const container = document.getElementById('threejs-canvas');
   if (!container) return;
-
-  const getSize = () => ({
-    w: Math.max(container.clientWidth, 1),
-    h: Math.max(container.clientHeight, 1)
-  });
+  const getSize = () => ({ w: Math.max(container.clientWidth, 1), h: Math.max(container.clientHeight, 1) });
   let { w: W, h: H } = getSize();
   const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
   renderer.setSize(W, H);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
   container.prepend(renderer.domElement);
   container.classList.add('three-ready');
-
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(60, W / H, 0.1, 100);
   camera.position.z = 4.2;
-
   const group = new THREE.Group();
   scene.add(group);
-
   const shellGeo = new THREE.IcosahedronGeometry(1.35, 4);
-  const shell = new THREE.LineSegments(
-    new THREE.EdgesGeometry(shellGeo),
-    new THREE.LineBasicMaterial({ color: 0x00AAFF, transparent: true, opacity: 0.34 })
-  );
+  const shell = new THREE.LineSegments(new THREE.EdgesGeometry(shellGeo), new THREE.LineBasicMaterial({ color: 0x00AAFF, transparent: true, opacity: 0.34 }));
   group.add(shell);
-
-  const core = new THREE.Mesh(
-    new THREE.IcosahedronGeometry(0.72, 2),
-    new THREE.MeshBasicMaterial({ color: 0x8B00FF, wireframe: true, transparent: true, opacity: 0.42 })
-  );
+  const core = new THREE.Mesh(new THREE.IcosahedronGeometry(0.72, 2), new THREE.MeshBasicMaterial({ color: 0x8B00FF, wireframe: true, transparent: true, opacity: 0.42 }));
   group.add(core);
-
   const ringMatBlue = new THREE.MeshBasicMaterial({ color: 0x00AAFF, wireframe: true, transparent: true, opacity: 0.36 });
   const ringMatPurple = new THREE.MeshBasicMaterial({ color: 0x8B00FF, wireframe: true, transparent: true, opacity: 0.34 });
   const rings = [
@@ -204,10 +201,8 @@ function initThreeSphere() {
   ];
   rings[0].rotation.x = Math.PI / 2.7;
   rings[1].rotation.y = Math.PI / 2.4;
-  rings[2].rotation.x = Math.PI / 3.8;
-  rings[2].rotation.y = Math.PI / 5;
+  rings[2].rotation.x = Math.PI / 3.8; rings[2].rotation.y = Math.PI / 5;
   rings.forEach(r => group.add(r));
-
   const dotGeo = new THREE.BufferGeometry();
   const dotCount = 360;
   const positions = new Float32Array(dotCount * 3);
@@ -220,66 +215,46 @@ function initThreeSphere() {
     positions[i * 3 + 2] = radius * Math.cos(phi);
   }
   dotGeo.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
-  const dots = new THREE.Points(
-    dotGeo,
-    new THREE.PointsMaterial({ color: 0x9D19FF, size: 0.026, transparent: true, opacity: 0.9 })
-  );
+  const dots = new THREE.Points(dotGeo, new THREE.PointsMaterial({ color: 0x9D19FF, size: 0.026, transparent: true, opacity: 0.9 }));
   group.add(dots);
-
   const beamGeo = new THREE.BufferGeometry();
   const beamPositions = [];
   for (let i = 0; i < 44; i++) {
     const a = Math.random() * Math.PI * 2;
     const b = (Math.random() - 0.5) * 1.8;
     const r = 1.85 + Math.random() * 0.55;
-    const x = Math.cos(a) * r;
-    const y = Math.sin(a) * r * 0.55 + b * 0.15;
-    const z = Math.sin(a) * r;
+    const x = Math.cos(a) * r, y = Math.sin(a) * r * 0.55 + b * 0.15, z = Math.sin(a) * r;
     beamPositions.push(x, y, z, x * 0.86, y * 0.86, z * 0.86);
   }
   beamGeo.setAttribute('position', new THREE.Float32BufferAttribute(beamPositions, 3));
-  const beams = new THREE.LineSegments(
-    beamGeo,
-    new THREE.LineBasicMaterial({ color: 0x00AAFF, transparent: true, opacity: 0.16 })
-  );
+  const beams = new THREE.LineSegments(beamGeo, new THREE.LineBasicMaterial({ color: 0x00AAFF, transparent: true, opacity: 0.16 }));
   group.add(beams);
-
   let mouseX = 0, mouseY = 0;
   document.addEventListener('mousemove', e => {
     mouseX = (e.clientX / window.innerWidth - 0.5) * 0.65;
     mouseY = (e.clientY / window.innerHeight - 0.5) * 0.45;
   });
-
   function animate() {
     requestAnimationFrame(animate);
     if (container.clientWidth < 2 || container.clientHeight < 2) return;
-    shell.rotation.y += 0.0036;
-    shell.rotation.x += 0.0012;
-    core.rotation.x -= 0.005;
-    core.rotation.y += 0.007;
-    dots.rotation.y -= 0.0018;
-    beams.rotation.y += 0.0025;
-    rings[0].rotation.z += 0.003;
-    rings[1].rotation.x += 0.0022;
-    rings[2].rotation.y -= 0.0026;
+    shell.rotation.y += 0.0036; shell.rotation.x += 0.0012;
+    core.rotation.x -= 0.005; core.rotation.y += 0.007;
+    dots.rotation.y -= 0.0018; beams.rotation.y += 0.0025;
+    rings[0].rotation.z += 0.003; rings[1].rotation.x += 0.0022; rings[2].rotation.y -= 0.0026;
     group.rotation.x += (mouseY - group.rotation.x) * 0.025;
     group.rotation.y += (mouseX - group.rotation.y) * 0.025;
     renderer.render(scene, camera);
   }
   animate();
-
   window.addEventListener('resize', () => {
     const { w: nW, h: nH } = getSize();
-    camera.aspect = nW / nH;
-    camera.updateProjectionMatrix();
-    renderer.setSize(nW, nH);
+    camera.aspect = nW / nH; camera.updateProjectionMatrix(); renderer.setSize(nW, nH);
   });
 }
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initThreeSphere);
-} else { initThreeSphere(); }
+if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initThreeSphere); }
+else { initThreeSphere(); }
 
-/* ── FLOATING 3D SHAPES PARALLAX ── */
+/* ── PARALLAX SHAPES ── */
 function initParallaxShapes() {
   const shapes = document.querySelectorAll('.shape-3d');
   if (!shapes.length) return;
@@ -294,41 +269,35 @@ function initParallaxShapes() {
 }
 initParallaxShapes();
 
-/* ── SCROLL REVEAL (Intersection Observer) ── */
+/* ── SCROLL REVEAL ── */
 function initScrollReveal() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
     });
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
 }
 initScrollReveal();
 
-/* ── 3D TILT ON SERVICE CARDS ── */
+/* ── 3D TILT ON CARDS ── */
 function initTilt() {
   document.querySelectorAll('.service-card, .why-card, .team-card').forEach(card => {
     card.addEventListener('mousemove', e => {
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left, y = e.clientY - rect.top;
       const cx = rect.width / 2, cy = rect.height / 2;
-      const rotX = ((y - cy) / cy) * -12;
-      const rotY = ((x - cx) / cx) * 12;
+      const rotX = ((y - cy) / cy) * -12, rotY = ((x - cx) / cx) * 12;
       card.style.transform = `perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(8px)`;
       card.style.setProperty('--mx', `${(x / rect.width) * 100}%`);
       card.style.setProperty('--my', `${(y / rect.height) * 100}%`);
     });
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) translateZ(0)';
-    });
+    card.addEventListener('mouseleave', () => { card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) translateZ(0)'; });
   });
 }
 initTilt();
 
-/* ── ANIMATED STATS COUNTER ── */
+/* ── STATS COUNTER (kept for about.html compatibility) ── */
 function initStats() {
   const stats = document.querySelectorAll('.stat-number');
   if (!stats.length) return;
@@ -359,18 +328,10 @@ function initCarousel() {
   if (!track) return;
   const cards = [...track.querySelectorAll('.review-card')];
   const dotsWrap = document.querySelector('.carousel-dots');
-  let current = 0;
-  let perView = 1;
-  let total = 1;
-  let dots = [];
-
-  function getPerView() {
-    return window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
-  }
-
+  let current = 0, perView = 1, total = 1, dots = [];
+  function getPerView() { return window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3; }
   function setupDots() {
-    perView = getPerView();
-    total = Math.max(1, Math.ceil(cards.length / perView));
+    perView = getPerView(); total = Math.max(1, Math.ceil(cards.length / perView));
     if (!dotsWrap) return;
     dotsWrap.innerHTML = '';
     for (let i = 0; i < total; i++) {
@@ -381,142 +342,266 @@ function initCarousel() {
     }
     dots = [...dotsWrap.querySelectorAll('.dot')];
   }
-
   function getStep() {
     const carousel = document.querySelector('.reviews-carousel');
     const gap = parseFloat(getComputedStyle(track).gap) || 0;
     return ((carousel?.clientWidth || track.clientWidth) + gap) / perView;
   }
-
   function go(idx) {
     current = (idx + total) % total;
     const offset = current * perView * getStep();
     track.style.transform = `translateX(-${offset}px)`;
     dots.forEach((d, i) => d.classList.toggle('active', i === current));
   }
-
   setupDots();
   document.getElementById('prev-review')?.addEventListener('click', () => go(current - 1));
   document.getElementById('next-review')?.addEventListener('click', () => go(current + 1));
   let auto = setInterval(() => go(current + 1), 3500);
   track.addEventListener('mouseenter', () => clearInterval(auto));
   track.addEventListener('mouseleave', () => { auto = setInterval(() => go(current + 1), 3500); });
-  window.addEventListener('resize', () => {
-    const nextPerView = getPerView();
-    if (nextPerView !== perView) setupDots();
-    go(Math.min(current, total - 1));
-  });
-  // Touch swipe
+  window.addEventListener('resize', () => { const n = getPerView(); if (n !== perView) setupDots(); go(Math.min(current, total - 1)); });
   let startX = 0;
   track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
-  track.addEventListener('touchend', e => {
-    const diff = startX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 40) go(diff > 0 ? current + 1 : current - 1);
-  });
+  track.addEventListener('touchend', e => { const diff = startX - e.changedTouches[0].clientX; if (Math.abs(diff) > 40) go(diff > 0 ? current + 1 : current - 1); });
   go(0);
 }
 initCarousel();
 
 /* ── TICKER DUPLICATE ── */
 function initTicker() {
-  document.querySelectorAll('.ticker-track').forEach(track => {
-    const clone = track.innerHTML;
-    track.innerHTML = clone + clone;
-  });
+  document.querySelectorAll('.ticker-track').forEach(track => { const clone = track.innerHTML; track.innerHTML = clone + clone; });
 }
 initTicker();
 
-/* ── CLIENTS MARQUEE DUPLICATE ── */
-function initClientsMarquee() {
-  document.querySelectorAll('.clients-row').forEach(row => {
-    row.innerHTML = row.innerHTML + row.innerHTML;
+/* ── BACK TO TOP ── */
+document.getElementById('back-top')?.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+/* ── SMOOTH SECTION TRANSITIONS ── */
+function initSectionReveal() {
+  const sections = document.querySelectorAll('section');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.style.opacity = '1'; });
+  }, { threshold: 0.05 });
+  sections.forEach(s => { s.style.opacity = '0'; s.style.transition = 'opacity 0.5s ease'; obs.observe(s); });
+}
+initSectionReveal();
+
+/* ── PORTFOLIO FILTER ── */
+function initPortfolioFilter() {
+  const filters = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.portfolio-card');
+  if (!filters.length) return;
+  filters.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filters.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.filter;
+      cards.forEach(card => {
+        const show = cat === 'all' || card.dataset.category === cat;
+        if (show) {
+          card.hidden = false;
+          requestAnimationFrame(() => { card.style.opacity = '1'; card.style.transform = 'scale(1)'; card.style.pointerEvents = 'all'; });
+        } else {
+          card.style.opacity = '0'; card.style.transform = 'scale(0.92)'; card.style.pointerEvents = 'none';
+          setTimeout(() => { if (btn.classList.contains('active')) card.hidden = true; }, 220);
+        }
+      });
+    });
   });
 }
-initClientsMarquee();
+initPortfolioFilter();
 
-/* ── BACK TO TOP ── */
-document.getElementById('back-top')?.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+/* ── FAQ ACCORDION ── */
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    document.querySelectorAll('.faq-item').forEach(i => { if (i !== item) i.classList.remove('open'); });
+    item.classList.toggle('open');
+  });
 });
 
-/* ── AI CHATBOT ── */
+/* ================================================================
+   CONTACT FORM — EmailJS Integration
+   ================================================================
+   SETUP STEPS (one-time, takes 5 minutes):
+   1. Go to https://www.emailjs.com and create a FREE account
+   2. Add Email Service: Dashboard → Email Services → Add Service → choose Gmail
+      → Connect your Gmail → copy the SERVICE ID
+   3. Create Template: Dashboard → Email Templates → Create New
+      → Subject: "New Inquiry from {{from_name}} — Upfigure"
+      → Body: paste this (or customize):
+        Name: {{from_name}}
+        Business: {{business_name}}
+        Email: {{from_email}}
+        Phone: {{phone}}
+        Website: {{website}}
+        Industry: {{industry}}
+        Service: {{service}}
+        Budget: {{budget}}
+        Challenge: {{challenge}}
+        Timeline: {{timeline}}
+        Message: {{message}}
+      → Save → copy the TEMPLATE ID
+   4. Get Public Key: Dashboard → Account → General → Public Key
+   5. Replace the 3 placeholders below with your real keys
+   ================================================================ */
+
+const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';   // ← replace
+const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';   // ← replace
+const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';  // ← replace
+
+function initContactForm() {
+  const form = document.getElementById('contact-form');
+  if (!form) return;
+
+  // Load EmailJS SDK dynamically
+  if (!window.emailjs) {
+    const s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
+    s.onload = () => {
+      if (EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') emailjs.init(EMAILJS_PUBLIC_KEY);
+    };
+    document.head.appendChild(s);
+  }
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Validate required fields
+    const required = form.querySelectorAll('[required]');
+    let valid = true;
+    required.forEach(f => {
+      f.style.borderColor = '';
+      if (!f.value.trim()) { f.style.borderColor = '#ff4444'; valid = false; }
+    });
+    if (!valid) {
+      const firstErr = form.querySelector('[required][style*="ff4444"]');
+      firstErr?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    const btn = form.querySelector('[type="submit"]');
+    const original = btn.innerHTML;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    btn.disabled = true;
+
+    // Check if EmailJS keys are configured
+    if (EMAILJS_PUBLIC_KEY === 'YOUR_PUBLIC_KEY') {
+      // Demo mode — show success without actually sending
+      setTimeout(() => {
+        form.style.display = 'none';
+        const success = document.getElementById('form-success');
+        if (success) success.style.display = 'block';
+        // In production, replace the keys above and this block will be skipped
+        console.log('⚠️ EmailJS keys not configured yet. See comments in main.js for setup.');
+      }, 1200);
+      return;
+    }
+
+    // Send via EmailJS
+    emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form)
+      .then(() => {
+        form.style.display = 'none';
+        const success = document.getElementById('form-success');
+        if (success) success.style.display = 'block';
+        form.reset();
+      })
+      .catch(err => {
+        console.error('EmailJS Error:', err);
+        btn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Failed — Try WhatsApp';
+        btn.style.background = 'linear-gradient(135deg, #ff416c, #ff4b2b)';
+        btn.disabled = false;
+        setTimeout(() => { btn.innerHTML = original; btn.style.background = ''; }, 3500);
+      });
+  });
+}
+initContactForm();
+
+/* ================================================================
+   CHATBOT — Human Support Feel (Updated)
+   ================================================================ */
 (function initChatbot() {
+
   const responses = {
     greet: {
-      t: ['hi','hello','hey','namaste','hii','helo','hola','sup'],
-      r: '👋 Hello! Welcome to Upfigure!\n\nI\'m your AI assistant. How can I help you today?\n\nYou can ask me about:\n• Our Services\n• Pricing & Packages\n• Portfolio & Work\n• Timeline & Delivery\n• How to get started',
-      q: ['See Services','Check Pricing','View Portfolio']
+      t: ['hi','hello','hey','namaste','hii','helo','hola','sup','start'],
+      r: '👋 Hi there! Welcome to Upfigure.\n\nWe help businesses grow through the right combination of technology, branding, marketing and AI.\n\nWhat can I help you with today?',
+      q: ['Our Services','Book a Call','View Pricing']
     },
     services: {
-      t: ['service','services','what do you do','offer','work','help'],
-      r: '🎯 Upfigure offers 12 premium services:\n\n🎨 Graphics Design\n🎬 Video Editing\n🎥 Cinematography\n📸 Photography\n💻 Website Design & Dev\n📱 App Design & Dev\n📣 Social Media\n📊 Performance Marketing\n🚀 Landing Pages\n\nWhich service interests you?',
-      q: ['Check Pricing','Get a Quote','Contact Us']
+      t: ['service','services','what do you do','offer','work','help','capabilities'],
+      r: 'We work across 5 core areas:\n\n💻 Development — Websites, apps, SaaS, e-commerce\n🎨 Design — Brand, UI/UX, video, creatives\n📊 Marketing — SEO, Google Ads, Meta Ads, social\n🚀 Growth — Lead gen, CRM, funnels, automation\n🤖 AI — Chatbots, agents, workflow automation\n\nWhich area is most relevant to your business?',
+      q: ['Book a Call','View Pricing','View Portfolio']
     },
     pricing: {
-      t: ['price','pricing','cost','budget','how much','rate','charge','fees','kitna','rupees','rs'],
-      r: '💰 Our starting prices:\n\n• Logo Design: ₹2,999+\n• Website: ₹15,000+\n• Social Media/month: ₹8,000+\n• Video Editing: ₹3,000+\n• App Development: ₹50,000+\n• Landing Page: ₹5,000+\n• Performance Ads: ₹10,000+/month\n\nFor exact quote, WhatsApp us! 👇',
-      q: ['WhatsApp Now','Get Quote','See Services']
+      t: ['price','pricing','cost','budget','how much','rate','charge','fees','kitna','rupees','rs','invest','investment'],
+      r: '💰 Starting investment:\n\n• Brand Identity: ₹3,000+\n• Business Website: ₹15,000+\n• Landing Page: ₹6,000+\n• Social Media/month: ₹8,000+\n• Performance Ads: ₹10,000+/month\n• Mobile App: ₹50,000+\n• AI Chatbot / Agent: ₹15,000+\n• CRM Setup: ₹12,000+\n\nEvery project gets a custom quote. Let\'s talk?',
+      q: ['Book a Call','WhatsApp Now','Our Services']
     },
     contact: {
-      t: ['contact','reach','call','whatsapp','email','phone','number','address'],
-      r: '📞 Contact Upfigure:\n\n• WhatsApp: +91 8081871440\n• Email: hello.prashantseo@gmail.com\n• Location: Gurugram, Haryana\n• Hours: Mon-Sat, 10AM - 7PM\n\nWe reply within 1 hour! 🚀',
-      q: ['WhatsApp Now','Email Us','View Location']
+      t: ['contact','reach','call','whatsapp','email','phone','number','connect','talk','speak'],
+      r: '📞 Reach us directly:\n\n• WhatsApp: +91 8081871440\n• Email: hello.prashantseo@gmail.com\n• Hours: Mon–Sat, 10AM – 7PM IST\n\nWe typically respond within 1 hour on WhatsApp.',
+      q: ['WhatsApp Now','Book a Call','Email Us']
     },
     portfolio: {
-      t: ['portfolio','work','projects','examples','samples','previous','case'],
-      r: '🏆 Our Portfolio Highlights:\n\n• 80+ Projects Completed\n• 30+ Happy Clients\n• Industries: Tech, Fashion, Real Estate, F&B, EdTech, D2C\n\nCheck our Portfolio page for detailed case studies!',
-      q: ['View Portfolio','Get a Quote','See Services']
+      t: ['portfolio','work','projects','examples','samples','previous','case','built','made'],
+      r: '🏆 Our work spans:\n\n• Business & corporate websites\n• E-commerce platforms\n• Brand identity systems\n• Mobile apps\n• Performance ad campaigns\n• AI automation systems\n\nCheck our Portfolio page for detailed case studies and project previews.',
+      q: ['View Portfolio','Book a Call','Our Services']
     },
     timeline: {
-      t: ['time','timeline','delivery','how long','days','deadline','fast','quick','turnaround'],
-      r: '⚡ Delivery Timelines:\n\n• Logo Design: 2-3 days\n• Social Media Posts: Same day\n• Website: 7-14 days\n• Video Editing: 2-4 days\n• App Development: 30-60 days\n• Landing Page: 3-5 days\n\nWe are known for FAST delivery!',
-      q: ['Get a Quote','WhatsApp Now','See Services']
+      t: ['time','timeline','delivery','how long','days','deadline','fast','quick','turnaround','when'],
+      r: '⚡ Typical delivery times:\n\n• Logo / Brand Identity: 3–5 days\n• Landing Page: 3–5 days\n• Business Website: 10–18 days\n• Mobile App: 30–60 days\n• AI Chatbot: 7–14 days\n• Ad Campaign setup: 3–5 days\n\nTimelines are confirmed after the discovery call.',
+      q: ['Book a Call','Our Services','View Pricing']
     },
     about: {
-      t: ['about','who','company','team','agency','founded','upfigure'],
-      r: '🏢 About Upfigure:\n\nFull-service creative agency based in Gurugram, helping brands grow through design, tech & marketing.\n\n✅ In-House Team (zero outsourcing)\n✅ 80+ Projects Done\n✅ 30+ Happy Clients\n✅ 4.9 ⭐ Google Rating\n✅ 12 Services, One Roof',
-      q: ['Our Services','View Portfolio','Contact Us']
+      t: ['about','who','company','team','agency','founded','upfigure','background'],
+      r: '🏢 About Upfigure:\n\nWe\'re a business growth partner — not just an agency.\n\nBefore we recommend anything, we understand your business, your market and your goals. Then we build the right solution.\n\n✅ Strategy-first approach\n✅ In-house team only (no outsourcing)\n✅ Technology + Branding + AI + Marketing\n✅ Long-term partnership focus',
+      q: ['Our Services','Book a Call','View Portfolio']
     },
-    quality: {
-      t: ['quality','good','best','trusted','rating','review','google','stars'],
-      r: '⭐⭐⭐⭐⭐ Our Track Record:\n\n• 4.9 Google Rating\n• 50+ Verified Reviews\n• 100% Client Satisfaction\n• Zero outsourcing — in-house team only\n• We\'ve worked with 30+ brands across India',
-      q: ['See Reviews','View Portfolio','Get a Quote']
+    ai: {
+      t: ['ai','artificial intelligence','chatbot','agent','automation','automate','bot','workflow'],
+      r: '🤖 Our AI services:\n\n• AI Chatbots for your website\n• AI Sales & Support Agents\n• AI Voice Agents\n• Workflow Automation\n• CRM Automation\n• Business Process Automation\n• AI Integration into your tools\n• WhatsApp Automation\n\nAI can save your team hours every week. Want to explore?',
+      q: ['Book a Call','View Pricing','Our Services']
+    },
+    marketing: {
+      t: ['marketing','seo','ads','google','meta','facebook','social','content','leads','lead'],
+      r: '📊 Our marketing services:\n\n• SEO & Local SEO\n• Google Ads & PPC\n• Meta Ads (FB/Instagram)\n• Performance Marketing\n• Social Media Marketing\n• Content Marketing\n• Lead Generation\n• B2B Lead Generation\n• Email Marketing\n• CRO\n\nEvery campaign starts with understanding your customer, not just running ads.',
+      q: ['Book a Call','View Pricing','View Portfolio']
     },
     quote: {
-      t: ['quote','proposal','start','begin','hire','project','consultation','free'],
-      r: '🚀 Start Your Project:\n\n1. WhatsApp us: +91 8081871440\n2. Share your requirements\n3. Get FREE consultation\n4. Receive detailed proposal within 24 hrs\n5. Project kicks off!\n\nNo commitment required for consultation!',
-      q: ['WhatsApp Now','Contact Page','See Services']
+      t: ['quote','proposal','start','begin','project','consultation','free','discuss','discovery'],
+      r: '🚀 Starting is simple:\n\n1. Book a free discovery call\n2. Tell us about your business\n3. Get a tailored strategy & proposal within 24 hrs\n4. We begin when you\'re ready\n\nNo commitment. No pressure. Just a real conversation about your growth.',
+      q: ['WhatsApp Now','Book a Call','Contact Page']
+    },
+    quality: {
+      t: ['quality','trust','reliable','safe','good','best','professional','experience'],
+      r: '✅ What you can count on:\n\n• 100% in-house team — no outsourcing\n• We tell you what will work and what won\'t\n• Clear communication throughout\n• We sign NDAs before any project\n• No hidden costs — transparent pricing\n• We work until you\'re satisfied\n\nWant to see our work before deciding?',
+      q: ['View Portfolio','Book a Call','Our Services']
     }
   };
 
   const quickActions = {
-    'See Services': () => window.location.href = 'services.html',
-    'Check Pricing': () => sendBotMsg('pricing'),
-    'View Portfolio': () => window.location.href = 'portfolio.html',
-    'Get a Quote': () => window.location.href = 'contact.html',
-    'Get a quote': () => window.location.href = 'contact.html',
-    'WhatsApp Now': () => window.open('https://wa.me/918081871440','_blank'),
-    'Contact Us': () => window.location.href = 'contact.html',
-    'Contact Page': () => window.location.href = 'contact.html',
-    'Email Us': () => window.open('mailto:hello.prashantseo@gmail.com'),
-    'See Reviews': () => document.getElementById('reviews')?.scrollIntoView({behavior:'smooth'}),
-    'See services': () => window.location.href = 'services.html',
+    'Our Services':  () => window.location.href = 'services.html',
+    'Book a Call':   () => window.location.href = 'contact.html',
+    'View Pricing':  () => { panel.classList.remove('open'); document.getElementById('chat-messages') && handleInput('pricing'); },
+    'View Portfolio':() => window.location.href = 'portfolio.html',
+    'WhatsApp Now':  () => window.open('https://wa.me/918081871440','_blank'),
+    'Contact Page':  () => window.location.href = 'contact.html',
+    'Email Us':      () => window.open('mailto:hello.prashantseo@gmail.com'),
   };
 
-  const panel = document.getElementById('chatbot-panel');
+  const panel   = document.getElementById('chatbot-panel');
   const chatBtn = document.getElementById('chatbot-btn');
-  const closeBtn = document.getElementById('chat-close');
+  const closeBtn= document.getElementById('chat-close');
   const msgArea = document.getElementById('chat-messages');
-  const input = document.getElementById('chat-input');
+  const input   = document.getElementById('chat-input');
   const sendBtn = document.getElementById('chat-send');
-  const badge = document.getElementById('chat-badge');
+  const badge   = document.getElementById('chat-badge');
   if (!panel || !chatBtn) return;
 
-  let history = JSON.parse(sessionStorage.getItem('uf_chat') || '[]');
+  let history = JSON.parse(sessionStorage.getItem('uf_chat2') || '[]');
 
-  function getTime() {
-    return new Date().toLocaleTimeString('en-IN', {hour:'2-digit',minute:'2-digit'});
-  }
+  function getTime() { return new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'}); }
 
   function addMsg(text, type, quickReplies) {
     const div = document.createElement('div');
@@ -539,7 +624,8 @@ document.getElementById('back-top')?.addEventListener('click', () => {
     }
     msgArea.appendChild(div);
     msgArea.scrollTop = msgArea.scrollHeight;
-    history.push({text, type}); sessionStorage.setItem('uf_chat', JSON.stringify(history.slice(-20)));
+    history.push({text, type});
+    sessionStorage.setItem('uf_chat2', JSON.stringify(history.slice(-20)));
   }
 
   function showTyping() {
@@ -556,15 +642,13 @@ document.getElementById('back-top')?.addEventListener('click', () => {
     setTimeout(() => {
       typing.remove();
       addMsg(data.r, 'bot', data.q);
-    }, 800 + Math.random() * 400);
+    }, 700 + Math.random() * 500);
   }
 
   function matchResponse(text) {
     const lower = text.toLowerCase();
     for (const key in responses) {
-      if (responses[key].t && responses[key].t.some(t => lower.includes(t))) {
-        return key;
-      }
+      if (responses[key].t && responses[key].t.some(t => lower.includes(t))) return key;
     }
     return null;
   }
@@ -574,13 +658,12 @@ document.getElementById('back-top')?.addEventListener('click', () => {
     addMsg(text, 'user');
     if (input) input.value = '';
     const match = matchResponse(text);
-    if (match) {
-      sendBotMsg(match);
-    } else {
+    if (match) { sendBotMsg(match); }
+    else {
       const typing = showTyping();
       setTimeout(() => {
         typing.remove();
-        addMsg('🤔 I didn\'t quite get that. You can ask me about:\n\n• Services • Pricing • Portfolio\n• Timeline • Contact • Quote\n\nOr WhatsApp us: +91 8081871440', 'bot', ['See Services', 'Check Pricing', 'WhatsApp Now']);
+        addMsg('Happy to help! You can ask me about:\n\n• Our services & capabilities\n• Pricing & investment\n• Project timelines\n• AI automation\n• How to get started\n\nOr reach us directly on WhatsApp for a faster response.', 'bot', ['Our Services','View Pricing','WhatsApp Now']);
       }, 700);
     }
   }
@@ -588,7 +671,7 @@ document.getElementById('back-top')?.addEventListener('click', () => {
   chatBtn.addEventListener('click', () => {
     panel.classList.toggle('open');
     if (panel.classList.contains('open')) {
-      badge && (badge.style.opacity = '0');
+      if (badge) badge.style.opacity = '0';
       if (history.length === 0) sendBotMsg('greet');
       input?.focus();
     }
@@ -597,14 +680,14 @@ document.getElementById('back-top')?.addEventListener('click', () => {
   sendBtn?.addEventListener('click', () => handleInput(input?.value || ''));
   input?.addEventListener('keydown', e => { if (e.key === 'Enter') handleInput(input.value); });
 
-  // Auto-greet badge after 3s
+  // Show badge after 4 seconds
   setTimeout(() => {
     if (!panel.classList.contains('open') && history.length === 0) {
-      badge && (badge.style.opacity = '1');
+      if (badge) badge.style.opacity = '1';
     }
-  }, 3000);
+  }, 4000);
 
-  // Restore history
+  // Restore session history
   if (history.length > 0) {
     history.forEach(m => {
       const div = document.createElement('div');
@@ -613,66 +696,5 @@ document.getElementById('back-top')?.addEventListener('click', () => {
       msgArea.appendChild(div);
     });
   }
+
 })();
-
-/* ── PORTFOLIO FILTER (portfolio.html) ── */
-function initPortfolioFilter() {
-  const filters = document.querySelectorAll('.filter-btn');
-  const cards = document.querySelectorAll('.portfolio-card');
-  if (!filters.length) return;
-  filters.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filters.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const cat = btn.dataset.filter;
-      cards.forEach(card => {
-        const show = cat === 'all' || card.dataset.category === cat;
-        if (show) {
-          card.hidden = false;
-          requestAnimationFrame(() => {
-            card.style.opacity = '1';
-            card.style.transform = 'scale(1)';
-            card.style.pointerEvents = 'all';
-          });
-        } else {
-          card.style.opacity = '0';
-          card.style.transform = 'scale(0.92)';
-          card.style.pointerEvents = 'none';
-          setTimeout(() => {
-            if (btn.classList.contains('active')) card.hidden = true;
-          }, 220);
-        }
-      });
-    });
-  });
-}
-initPortfolioFilter();
-
-/* ── CONTACT FORM ── */
-function initContactForm() {
-  const form = document.getElementById('contact-form');
-  if (!form) return;
-  form.addEventListener('submit', e => {
-    const fields = form.querySelectorAll('[required]');
-    let valid = true;
-    fields.forEach(f => {
-      f.style.borderColor = '';
-      if (!f.value.trim()) { f.style.borderColor = '#ff4444'; valid = false; }
-    });
-    if (!valid) { e.preventDefault(); return; }
-    // Netlify handles submission; show success msg
-    const btn = form.querySelector('button[type="submit"]');
-    if (btn) { btn.textContent = '✅ Sending...'; btn.disabled = true; }
-  });
-}
-initContactForm();
-
-/* ── SMOOTH SECTION TRANSITIONS ── */
-function initSectionReveal() {
-  const sections = document.querySelectorAll('section');
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.style.opacity = '1'; });
-  }, {threshold: 0.05});
-  sections.forEach(s => { s.style.opacity = '0'; s.style.transition = 'opacity 0.5s ease'; obs.observe(s); });
-}
-initSectionReveal();
